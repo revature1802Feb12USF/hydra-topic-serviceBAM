@@ -3,8 +3,6 @@ package com.revature.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +49,7 @@ class TopicController {
 	 */
 	@RequestMapping(value = "/All", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public List<SubtopicName> getAllUsers() {
+	public List<SubtopicName> getAllSubtopicNames() {
 		return subNameRepo.findAll();
 	}
 
@@ -80,18 +78,22 @@ class TopicController {
 	 */
 	@PostMapping("/Add")
 	public void addTopicName(@RequestBody String name) {
+		
 		TopicName topic = new TopicName();
 		topic.setName(name);
 		topicService.addOrUpdateTopicName(topic);
 	}
 	
 	/**
-	 * @param typeId - 
-	 * @param topicId - 
-	 * @param subtopicName - 
+	 * @param typeId - int to store in a new SubtopicName object as the type
+	 * @param topicId - int to store in a new SubtopicName object as the topic
+	 * @param subtopicName - String to store in a new SubtopicName object as the name
+	 * 
+	 * Adds a new SubtopicName object to the SubtopicName table in the database
 	 */
 	@PostMapping("/addSubtopicName")
 	public void addSubTopicName(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
+		
 		SubtopicType type = subService.getSubtopicType(typeId);
 		TopicName topic = topicService.getTopicName(topicId);
 		SubtopicName subtopic = new SubtopicName(subtopicName, topic, type);
