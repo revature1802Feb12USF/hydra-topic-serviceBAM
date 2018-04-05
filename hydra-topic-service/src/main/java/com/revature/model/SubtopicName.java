@@ -92,7 +92,10 @@ public class SubtopicName {
 
 	@Override
 	public String toString() {
-		return "SubtopicName [id=" + id + ", name=" + name + ", topic=" + topic + "]";
+		return "SubtopicName [\n " + "(SubtopicName id) \t id=" + id + ",\n"
+				+ "(SubtopicName name) \t name = " + name + ",\n"
+				+ "(SubtopicName topic) \t topic = " + topic + "\n"
+				+ "(SubtopicName type) \t type = " + type + "\n"
+				+ "]";
 	}
-
 }
