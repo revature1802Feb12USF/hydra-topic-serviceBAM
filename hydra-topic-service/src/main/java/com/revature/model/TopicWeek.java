@@ -15,6 +15,15 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/*
+ *  Bean Class for Topic(s) of the week
+ *  <ul>
+ *  <li>id (change to topicId)
+ *  <li>topic (change to topicName)
+ *  <li>batch (change to batchId)
+ *  <li>weekNumber
+ *  </ul>
+ */
 @Component
 @Entity
 @Table(name = "Topic_Week")
@@ -25,7 +34,7 @@ public class TopicWeek {
 	@SequenceGenerator(name = "Week_ID_SEQ", sequenceName = "Week_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Week_ID_SEQ")
 	private Integer id;
- 
+
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "Topic_Name_ID", referencedColumnName = "Topic_ID")
 	@Autowired
@@ -92,7 +101,10 @@ public class TopicWeek {
 
 	@Override
 	public String toString() {
-		return "TopicWeek [id=" + id + ", topic=" + topic + ", batch=" + batch + ", weekNumber=" + weekNumber + "]";
+		return "TopicWeek [\n" + "(Topic ID) \t id =" + id + ",\n" 
+						+ "(Topic name) \t topic =" + topic + ",\n"
+						+ "(Batch ID) \t batch = " + batch + ",\n" 
+						+ "(Week Number) \t weekNumber =" + weekNumber + "\n" + "]";
 	}
 
 }
