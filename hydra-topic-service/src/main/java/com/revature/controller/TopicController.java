@@ -1,58 +1,3 @@
-
-/*package com.revature.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import javax.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.revature.model.TopicName;
-import com.revature.services.TopicService;
-
-
-@RestController
-//@RequestMapping(value = "/api/v2/Topic/")
-public class TopicController {
-
-
-		/*
-		 * Dummy rest call
-		 *//*
-		@GetMapping("/")
-		public TopicName home(){
-			System.out.println("Getting here");
-			return new TopicName("New Topic");
-		}
-		
-		
-		  @Autowired
-		  TopicService topicService;
-		
-	  @RequestMapping(value = "Add", method = RequestMethod.POST)
-	  public void addTopicName(HttpServletRequest request) {
-	    TopicName topic = new TopicName();
-	    topic.setName(request.getParameter("name"));
-	    topicService.addOrUpdateTopicName(topic);
-	  }
-	  
-		/*
-		 * Dummy rest call
-		 *//*
-		@GetMapping("/getFc2")
-		public TopicName getFc(){
-			System.out.println("hit /getFc2");
-			TopicName t=new TopicName("Test");
-			
-			//FlashCard fc = restTemplate.getForObject("http://flashcard-service-2/fc2", FlashCard.class);
-			return t;
-		}
-		
-
-
-}*/
-
 package com.revature.controller;
 
 import java.io.IOException;
@@ -70,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.revature.exceptions.CustomException;
 import com.revature.model.Subtopic;
 import com.revature.model.SubtopicName;
 import com.revature.model.SubtopicType;
@@ -88,52 +32,69 @@ class TopicController {
 	TopicService topicService;
 	
 	@Autowired
-	SubTopicService subserv;
+	SubTopicService subService;
 
 	@Autowired
-	SubtopicNameRepository sr;
+	SubtopicNameRepository subNameRepo;
 	
+	
+	/**
+	 * @return a new TopicName object for when the user reaches each page
+	 */
 	@GetMapping("/")
 	public TopicName home(){
-		System.out.println("Getting here");
 		return new TopicName("New Topic");
 	}
 	
+	/**
+	 * @return a JSON containing all the current subtopic names in the database
+	 */
 	@RequestMapping(value = "/All", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public List<SubtopicName> getAllUsers() {
-		System.out.println("Getting All");
-		System.out.println(sr.findAll());
-		return sr.findAll();
+		return subNameRepo.findAll();
 	}
 
+	/**
+	 * @param jsonObj - String to represent the json for the Subtopic
+	 * 
+	 * Adds a subtopic into the subtopic table in the database
+	 */
 	@PostMapping("/addSubtopic")
-	public void addSubtopic(@RequestBody String jsonObj) /*throws CustomException*/ {
+	public void addSubtopic(@RequestBody String jsonObj) {
 
-		Subtopic st = null;
+		Subtopic subtopic = null;
 		try {
-			st = new ObjectMapper().readValue(jsonObj, Subtopic.class);
+			subtopic = new ObjectMapper().readValue(jsonObj, Subtopic.class);
 		} catch (IOException e) {
-			System.out.println("Error");
-			//throw new CustomException(e);
+			e.printStackTrace();
 		}
 
-		subserv.updateSubtopic(st);
+		subService.updateSubtopic(subtopic);
 	}
 	
-	  @PostMapping("/Add")
-	  public void addTopicName(HttpServletRequest request) {
-		  System.out.println("i ghatee this");
-	    TopicName topic = new TopicName();
-	    topic.setName(request.getParameter("name"));
-	    topicService.addOrUpdateTopicName(topic);
-	  }
-	  
-	  @PostMapping("/addSubtopicName")
-	  public void addSubTopicName(HttpServletRequest request) {
-	    SubtopicType type = subserv.getSubtopicType(Integer.parseInt(request.getParameter("typeId")));
-	    TopicName topic = topicService.getTopicName(Integer.parseInt(request.getParameter("topicId")));
-	    SubtopicName subtopic = new SubtopicName(request.getParameter("subtopicName"), topic, type);
-	    subserv.addOrUpdateSubtopicName(subtopic);
-	  }
+	/**
+	 * @param name - String for the name of the topic to be added
+	 * 
+	 * Adds a new TopicName to the TopicName table in the database
+	 */
+	@PostMapping("/Add")
+	public void addTopicName(@RequestBody String name) {
+		TopicName topic = new TopicName();
+		topic.setName(name);
+		topicService.addOrUpdateTopicName(topic);
+	}
+	
+	/**
+	 * @param typeId - 
+	 * @param topicId - 
+	 * @param subtopicName - 
+	 */
+	@PostMapping("/addSubtopicName")
+	public void addSubTopicName(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
+		SubtopicType type = subService.getSubtopicType(typeId);
+		TopicName topic = topicService.getTopicName(topicId);
+		SubtopicName subtopic = new SubtopicName(subtopicName, topic, type);
+		subService.addOrUpdateSubtopicName(subtopic);
+	}
 }
