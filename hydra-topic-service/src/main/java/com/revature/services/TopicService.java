@@ -20,6 +20,13 @@ public class TopicService {
 	  @Autowired
 	  TopicNameRepository topicNameRepository;
 
+	  /**
+	   * adds topic to the topics to be covered by a batch, on a certain week
+	   * 
+	   * @param topicNameId
+	   * @param batch
+	   * @param weekNumber
+	   */
 	  public void addTopic(int topicNameId, int batch, int weekNumber) {
 	    TopicWeek topic = new TopicWeek();
 	    Batch b;
@@ -33,18 +40,40 @@ public class TopicService {
 	    topicWeekRepository.save(topic);
 	  }
 
+	  /**
+	   * get all the topics to be covered by a batch
+	   * 
+	   * @param batch
+	   * @return
+	   */
 	  public List<TopicWeek> getTopicByBatch(Batch batch) {
 	    return topicWeekRepository.findByBatch(batch);
 	  }
 
+	  /**
+	   * gets all the topics covered by all batches
+	   * 
+	   * @return List<TopicName>
+	   */
 	  public List<TopicName> getTopics() {
 	    return topicNameRepository.findAll();
 	  }
 
+	  /**
+	   * add or update a topic entry with the given topic entry
+	   * 
+	   * @param topic
+	   */
 	  public void addOrUpdateTopicName(TopicName topic) {
 	    topicNameRepository.save(topic);
 	  }
-
+	  
+	  /**
+	   * find a topic entry by its id
+	   * 
+	   * @param id
+	   * @return
+	   */
 	  public TopicName getTopicName(int id) {
 	    return topicNameRepository.findByid(id);
 	  }	

@@ -7,6 +7,12 @@ import com.revature.model.Batch;
 
 
 public interface BatchRepository extends JpaRepository<Batch, Integer> {
+
+	/**
+	 * Find batch by id
+	 * @param batch id
+	 * @return batch by id
+	 */
 	public Batch findByid(Integer id);
 
 }

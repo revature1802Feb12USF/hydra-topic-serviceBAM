@@ -37,6 +37,13 @@ public class SubTopicService {
 	  @Autowired
 	  SubtopicTypeRepository subtopicTypeRepository;
 
+	  /**
+	   * adds a subtopic to the list of topics to be reviewed 
+	   * for a batch, with the given id
+	   * 
+	   * @param subtopic
+	   * @param batch
+	   */
 	  public void addSubtopic(int subtopic, int batch){
 	    Subtopic s = new Subtopic();
 	    Batch b;
@@ -63,13 +70,19 @@ public class SubTopicService {
 	    subtopicRepository.save(s);
 	  }
 
+	  /**
+	   * lists out the topics to be covered by a batch
+	   * 
+	   * @param batch
+	   * @return List<Subtopic>
+	   */
 		public List<Subtopic> getSubtopicByBatch(Batch batch) {
 			return subtopicRepository.findByBatch(batch);
 		}
 
 	  /**
 	   * 
-	   * @param Subtopic
+	   * @param subtopic
 	   *          Persisting subtopic to database.
 	   *          To handle timezone offset, before submission to DB,
 	   *          adding offset to date and updating date.
@@ -111,46 +124,34 @@ public class SubTopicService {
 	  }
 
 	  /**
-	   * Service method to return the pages of json information to the FullCalendar
-	   * API.
-	   * This is hard coded until the FullCalendar API is set up for getting pages
-	   * of
-	   * json sub-topics.
+	   * find the subtopic entry given the name
 	   * 
-	   * @param batchId
-	   * @param pageRequest
-	   * @return
-	   * 
-	   *         Authors: Michael Garza
-	   *         Gary LaMountain
-	   */
-
-	  /**
-	   * 
-	   * @param String
-	   *          name
+	   * @param String name
 	   * @return SubtopicName
 	   */
+	  
 	  public SubtopicName getSubtopicName(String name) {
 	    return subtopicNameRepository.findByName(name);
 	  }
 
 	  /**
+	   * find the subtopic type entry given the type
 	   * 
-	   * @param int
-	   *          type
+	   * @param int type
 	   * @return SubtopicType
 	   */
+	  
 	  public SubtopicType getSubtopicType(int type) {
 	    return subtopicTypeRepository.findByid(type);
 	  }
 
 	  /**
+	   * add or update the subtopic entry with the given entry
 	   * 
-	   * @param SubtopicName
-	   *          subtopicName
+	   * @param SubtopicName subtopicName
 	   * @author Brian McKalip
 	   */
+	  
 	  public void addOrUpdateSubtopicName(SubtopicName subtopicName) {
 	    subtopicNameRepository.save(subtopicName);
 	  }
