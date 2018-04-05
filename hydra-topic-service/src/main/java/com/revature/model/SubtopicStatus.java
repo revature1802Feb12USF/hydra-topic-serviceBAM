@@ -10,6 +10,14 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/*
+ * Bean Class for SubTopic Status
+ * 
+ * <ul>
+ * <li> id (change to subtopicStatusId)
+ * <li>name (change to subtopicStatusName)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Subtopic_Status")
@@ -25,13 +33,7 @@ public class SubtopicStatus {
 	private String name;
 
 	public SubtopicStatus() {
-		//Empty Because No Args
-	}
-
-	public SubtopicStatus(Integer id, String name) {
 		super();
-		this.id = id;
-		this.name = name;
 	}
 
 	public SubtopicStatus(String name) {
@@ -57,7 +59,8 @@ public class SubtopicStatus {
 
 	@Override
 	public String toString() {
-		return "SubtopicStatus [id=" + id + ", name=" + name + "]";//NOSONAR
+		return "SubtopicStatus [\n" + "(SubTopic Status ID) \t  id = " + id + ",\n"
+						+ " (SubTopic Status Type) \t name =" + name + "\n]";//NOSONAR
 	}
 
 }
