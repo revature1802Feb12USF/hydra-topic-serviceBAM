@@ -54,9 +54,9 @@ class TopicController {
 	}
 
 	/**
-	 * @param jsonObj - String to represent the json for the Subtopic
-	 * 
 	 * Adds a subtopic into the subtopic table in the database
+	 * 
+	 * @param jsonObj - String to represent the json for the Subtopic
 	 */
 	@PostMapping("/addSubtopic")
 	public void addSubtopic(@RequestBody String jsonObj) {
@@ -72,9 +72,9 @@ class TopicController {
 	}
 	
 	/**
-	 * @param name - String for the name of the topic to be added
-	 * 
 	 * Adds a new TopicName to the TopicName table in the database
+	 * 
+	 * @param name - String for the name of the topic to be added
 	 */
 	@PostMapping("/Add")
 	public void addTopicName(@RequestBody String name) {
@@ -85,11 +85,11 @@ class TopicController {
 	}
 	
 	/**
+	 * Adds a new SubtopicName object to the SubtopicName table in the database
+	 * 
 	 * @param typeId - int to store in a new SubtopicName object as the type
 	 * @param topicId - int to store in a new SubtopicName object as the topic
 	 * @param subtopicName - String to store in a new SubtopicName object as the name
-	 * 
-	 * Adds a new SubtopicName object to the SubtopicName table in the database
 	 */
 	@PostMapping("/addSubtopicName")
 	public void addSubTopicName(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
