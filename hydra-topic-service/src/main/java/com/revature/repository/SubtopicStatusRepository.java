@@ -8,6 +8,7 @@ import com.revature.model.SubtopicStatus;
 
 @Repository
 public interface SubtopicStatusRepository extends JpaRepository<SubtopicStatus, Integer> {
+	
 	/**
 	 * Find SubtopicStatus by SubtopicStatus id
 	 * @param SubtopicStatusid

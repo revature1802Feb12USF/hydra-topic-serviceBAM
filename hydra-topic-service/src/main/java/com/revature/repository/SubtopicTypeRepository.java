@@ -14,7 +14,6 @@ public interface SubtopicTypeRepository extends JpaRepository<SubtopicType, Inte
 	 * @param Subtopicid
 	 * @return SubtopicType
 	 */
-	
 	public SubtopicType findByid(Integer type);
 	
 }
