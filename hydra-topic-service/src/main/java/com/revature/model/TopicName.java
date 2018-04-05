@@ -36,7 +36,7 @@ public class TopicName {
 	}
 
 	public TopicName(String name) {
-		super(); //NOSONAR
+		super();
 		this.id=0;
 		this.name = name;
 	}
@@ -59,7 +59,9 @@ public class TopicName {
 
 	@Override
 	public String toString() {
-		return "TopicName [id=" + id + ", name=" + name + "]";//NOSONAR
-	}
+		return "TopicName [\n" +"(Topic ID) \t id =" + id + ",\n "
+				+ "(Topic name) \t name =" + name + "\n"
+				+ "]";
+	}//NOSONAR
 
 }
