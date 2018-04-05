@@ -57,7 +57,10 @@ public class SubtopicType {
 
 	@Override
 	public String toString() {
-		return "SubtopicType [id=" + id + ", name=" + name + "]";//NOSONAR
-	}
+		
+		return "SubtopicType [\n" + "(SubtopicType ID) \t id= " + id 
+				+ ",\n" +  
+				"(SubtopicType Name) \t name = " + name + "\n" + "]";
+	}//NOSONAR
 
 }
