@@ -5,8 +5,14 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.SubtopicType;
 
-
 @Repository
 public interface SubtopicTypeRepository extends JpaRepository<SubtopicType, Integer> {
+	
+	/**
+	 * Find SubtopicType by SubtopicTypeid
+	 * @param Subtopicid
+	 * @return SubtopicType
+	 */
 	public SubtopicType findByid(Integer type);
+	
 }

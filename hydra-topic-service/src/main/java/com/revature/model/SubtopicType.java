@@ -10,6 +10,14 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic Type
+ * 
+ * <ul>
+ * <li> id (change to subtopicTypeId)
+ * <li> name (change to subtopicTypeName)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Subtopic_Type")
@@ -57,7 +65,10 @@ public class SubtopicType {
 
 	@Override
 	public String toString() {
-		return "SubtopicType [id=" + id + ", name=" + name + "]";//NOSONAR
-	}
+		
+		return "SubtopicType [\n" + "(SubtopicType ID) \t id= " + id 
+				+ ",\n" +  
+				"(SubtopicType Name) \t name = " + name + "\n" + "]";
+	}//NOSONAR
 
 }

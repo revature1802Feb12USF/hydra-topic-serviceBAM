@@ -1,6 +1,5 @@
 package com.revature.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +10,14 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic Status
+ * 
+ * <ul>
+ * <li> id (change to topicNameId)
+ * <li> name (change to topicName)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Topic_Name")
@@ -36,7 +43,7 @@ public class TopicName {
 	}
 
 	public TopicName(String name) {
-		super(); //NOSONAR
+		super();
 		this.id=0;
 		this.name = name;
 	}
@@ -59,7 +66,9 @@ public class TopicName {
 
 	@Override
 	public String toString() {
-		return "TopicName [id=" + id + ", name=" + name + "]";//NOSONAR
-	}
+		return "TopicName [\n" +"(Topic ID) \t id =" + id + ",\n "
+				+ "(Topic name) \t name =" + name + "\n"
+				+ "]";
+	}//NOSONAR
 
 }
