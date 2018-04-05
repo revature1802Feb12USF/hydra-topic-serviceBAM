@@ -8,20 +8,14 @@ import org.springframework.stereotype.Service;
 import com.revature.model.Batch;
 import com.revature.model.TopicName;
 import com.revature.model.TopicWeek;
-import com.revature.repository.BatchRepository;
 import com.revature.repository.TopicNameRepository;
 import com.revature.repository.TopicWeekRepository;
-
-
 
 @Service
 public class TopicService {
 
 	  @Autowired
 	  TopicWeekRepository topicWeekRepository;
-
-	 /*@Autowired
-	  BatchRepository batchRepistory;*/
 
 	  @Autowired
 	  TopicNameRepository topicNameRepository;
@@ -31,10 +25,8 @@ public class TopicService {
 	    Batch b;
 	    TopicName topicName;
 
-	    //b = batchRepistory.findByid(batch);
 	    topicName = topicNameRepository.findByid(topicNameId);
 
-	    //topic.setBatch(b);
 	    topic.setTopic(topicName);
 	    topic.setWeekNumber(weekNumber);
 
@@ -44,10 +36,6 @@ public class TopicService {
 	  public List<TopicWeek> getTopicByBatch(Batch batch) {
 	    return topicWeekRepository.findByBatch(batch);
 	  }
-
-	  /*public List<TopicWeek> getTopicByBatchId(int batchId) {
-	    return topicWeekRepository.findByBatch(batchRepistory.findByid(batchId));
-	  }*/
 
 	  public List<TopicName> getTopics() {
 	    return topicNameRepository.findAll();
@@ -59,7 +47,5 @@ public class TopicService {
 
 	  public TopicName getTopicName(int id) {
 	    return topicNameRepository.findByid(id);
-	  }
-
-	
+	  }	
 }
