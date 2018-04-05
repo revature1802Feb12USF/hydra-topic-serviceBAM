@@ -10,6 +10,13 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for Batch
+ * 
+ * <ul>
+ * <li> id - int (change to batchId)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "batches")
@@ -22,7 +29,7 @@ public class Batch {
 	private int id;
 
 	public Batch() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public Batch(int batchId) {
