@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.SubtopicType;
 
-
 @Repository
 public interface SubtopicTypeRepository extends JpaRepository<SubtopicType, Integer> {
 	

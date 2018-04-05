@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.SubtopicStatus;
 
-
 @Repository
 public interface SubtopicStatusRepository extends JpaRepository<SubtopicStatus, Integer> {
 	

@@ -1,6 +1,5 @@
 package com.revature.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +14,14 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic Name
+ * 
+ * <ul>
+ * <li> id (change to subtopicNameId)
+ * <li> name
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Subtopic_Name")
@@ -41,14 +48,6 @@ public class SubtopicName {
 
 	public SubtopicName() {
 		super();
-	}
-
-	public SubtopicName(Integer id, String name, TopicName topic, SubtopicType type) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.topic = topic;
-		this.type = type;
 	}
 
 	public SubtopicName(String name, TopicName topic, SubtopicType type) {

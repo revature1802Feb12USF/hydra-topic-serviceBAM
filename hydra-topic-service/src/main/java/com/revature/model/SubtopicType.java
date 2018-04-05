@@ -10,6 +10,14 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic Type
+ * 
+ * <ul>
+ * <li> id (change to subtopicTypeId)
+ * <li> name (change to subtopicTypeName)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Subtopic_Type")

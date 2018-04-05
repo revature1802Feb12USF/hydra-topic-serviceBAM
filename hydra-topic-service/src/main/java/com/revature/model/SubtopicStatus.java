@@ -10,12 +10,12 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-/*
+/**
  * Bean Class for SubTopic Status
  * 
  * <ul>
  * <li> id (change to subtopicStatusId)
- * <li>name (change to subtopicStatusName)
+ * <li> name (change to subtopicStatusName)
  * </ul>
  */
 @Component

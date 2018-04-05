@@ -9,7 +9,6 @@ import com.revature.model.Batch;
 import com.revature.model.Subtopic;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-
 @RepositoryRestResource
 public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	List<Subtopic> findByBatch(Batch batch);

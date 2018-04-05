@@ -16,6 +16,17 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic
+ * 
+ * <ul>
+ * <li> subtopicId - int
+ * <li> subtopicName - SubtopicName
+ * <li> batch - Batch
+ * <li> status - SubtopicStatus
+ * <li> subtopicDate - Timestamp
+ * </ul>
+ */
 @Entity
 @Table(name = "SUBTOPIC")
 @Component
@@ -51,16 +62,6 @@ public class Subtopic {
 
 	public Subtopic(SubtopicName subtopicName, Batch batch, SubtopicStatus status, Timestamp subtopicDate) {
 		super();
-		this.subtopicName = subtopicName;
-		this.batch = batch;
-		this.status = status;
-		this.subtopicDate = subtopicDate;
-	}
-
-	public Subtopic(int subtopicId, SubtopicName subtopicName, Batch batch, SubtopicStatus status,
-			Timestamp subtopicDate) {
-		super();
-		this.subtopicId = subtopicId;
 		this.subtopicName = subtopicName;
 		this.batch = batch;
 		this.status = status;

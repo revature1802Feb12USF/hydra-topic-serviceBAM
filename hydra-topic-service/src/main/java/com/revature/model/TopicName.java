@@ -1,6 +1,5 @@
 package com.revature.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +10,14 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean Class for SubTopic Status
+ * 
+ * <ul>
+ * <li> id (change to topicNameId)
+ * <li> name (change to topicName)
+ * </ul>
+ */
 @Component
 @Entity
 @Table(name = "Topic_Name")

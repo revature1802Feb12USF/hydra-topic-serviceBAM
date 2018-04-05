@@ -21,7 +21,6 @@ import com.revature.repository.SubtopicNameRepository;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
 
-
 @RestController
 @RequestMapping("/api/v2/Topics/")
 class TopicController {

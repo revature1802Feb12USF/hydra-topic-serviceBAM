@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.revature.model.Batch;
 import com.revature.model.TopicWeek;
 
-
 @Repository
 public interface TopicWeekRepository extends JpaRepository<TopicWeek, Integer> {
 	

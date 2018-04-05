@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/*
+/**
  *  Bean Class for Topic(s) of the week
  *  <ul>
  *  <li>id (change to topicId)
