@@ -9,5 +9,10 @@ import com.revature.model.TopicName;
  
 @Repository
 public interface TopicNameRepository extends JpaRepository<TopicName, Integer> {
+	/**
+	 * Find all TopicName by id
+	 * @param Topicname id
+	 * @return TopicName
+	 */
 	public TopicName findByid(Integer id);
 }
