@@ -35,34 +35,16 @@ public class SubTopicController {
 	public List<Subtopic> getAllSubtopics() {
 		return subTopicService.getSubtopics();
 	}
-	
+
 	/**
-	 * Adds a subtopic into the subtopic table in the database
+	 * Adds a new SubtopicName object to the SubtopicName table in the database
 	 * 
-	 * @param jsonObj - String to represent the json for the Subtopic
+	 * @param topicId - int to store in a new SubtopicName object as the topic
+	 * @param subtopicName - String to store in a new SubtopicName object as the name
 	 */
-	@PostMapping("/subtopics")
-	public void addSubtopic(@RequestBody String jsonObj) {
-		Subtopic subtopic = null;
-		try {
-			subtopic = new ObjectMapper().readValue(jsonObj, Subtopic.class);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		subTopicService.updateSubtopic(subtopic);
+	@PostMapping("/subtopic")
+	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
+		Topic topic = topicService.getTopicById(topicId);
+		subTopicService.addSubtopic(subtopicName, topic);
 	}
-
-//	/**
-//	 * Adds a new SubtopicName object to the SubtopicName table in the database
-//	 * 
-//	 * @param typeId - int to store in a new SubtopicName object as the type
-//	 * @param topicId - int to store in a new SubtopicName object as the topic
-//	 * @param subtopicName - String to store in a new SubtopicName object as the name
-//	 */
-//	@PostMapping("/subtopic")
-//	public void addSubtopic(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
-//		Topic topic = topicService.getTopicById(topicId);
-//		subTopicService.addSubtopic(subtopicName, topic);
-//	}
 }
