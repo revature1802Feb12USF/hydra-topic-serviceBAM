@@ -29,4 +29,5 @@ public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	 */
 	Long countSubtopicsByParentTopic(Topic topic);
 
+	Subtopic findBySubtopicName(String name);
 }

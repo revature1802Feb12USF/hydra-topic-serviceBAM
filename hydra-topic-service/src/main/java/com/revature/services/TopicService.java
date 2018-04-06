@@ -55,7 +55,7 @@ public class TopicService {
 	 * @param topicId
 	 * @return a topic
 	 */
-	public Topic getTopicName(int topicId) {
-		return topicRepo.findById(topicId);
+	public Topic getTopicById(int topicId) {
+		return topicRepo.findByTopicID(topicId);
 	}
 }

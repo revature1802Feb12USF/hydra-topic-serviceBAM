@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.model.Subtopic;
-import com.revature.model.SubtopicType;
 import com.revature.model.Topic;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
@@ -92,10 +91,7 @@ class TopicController {
 	@PostMapping("/addSubtopicName")
 	public void addSubtopic(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
 		
-		SubtopicType type = subService.getSubtopicType(typeId);
-		Topic topic = topicService.getTopicName(topicId);
-//		Subtopic(subtopicName, status, date, topic);
-		Subtopic subtopic = new Subtopic("new sub", "open", new Timestamp(System.currentTimeMillis()), new Topic("New topic", -1, -1));
-		subService.addOrUpdateSubtopic(subtopic);
+		Topic topic = topicService.getTopicById(topicId);
+		subService.addSubtopic(subtopicName, topic);
 	}
 }

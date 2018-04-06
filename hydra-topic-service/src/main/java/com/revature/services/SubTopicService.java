@@ -3,6 +3,7 @@ package com.revature.services;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.model.Subtopic;
-import com.revature.model.SubtopicType;
+import com.revature.model.Topic;
 import com.revature.repository.SubtopicRepository;
 import com.revature.repository.TopicRepository;
 
@@ -39,11 +40,8 @@ public class SubTopicService {
 	 * @param subtopic
 	 * @param batch
 	 */
-	public void addSubtopic(int subtopic, int batch){
-		Subtopic s = new Subtopic();
-		Batch b;
-		SubtopicName st;
-		SubtopicStatus ss;
+	public void addSubtopic(String name, Topic parentTopic) {
+		Subtopic newSubtopic = new Subtopic();
 		Date date = new Date();
 
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -53,24 +51,30 @@ public class SubTopicService {
 			System.out.println("Error");
 		}
 		long time = date.getTime();
-		Timestamp ts = new Timestamp(time);
-		st = subtopicNameRepository.findByid(subtopic);
-		ss = subtopicStatusRepository.findByid(1);
-	
-		s.setSubtopicName(st);
-		s.setStatus(ss);
-		s.setSubtopicDate(ts);
-	    subtopicRepository.save(s);
+		Timestamp timeForSubtopic = new Timestamp(time);
+		String newStatus = "Not covered";
+		
+		newSubtopic.setDate(timeForSubtopic);
+		newSubtopic.setSubtopicName(name);
+		newSubtopic.setStatus(newStatus);
+		newSubtopic.setParentTopic(parentTopic);	
+		
+	    subtopicRepository.save(newSubtopic);
 	}
 
 	/**
-	 * lists out the topics to be covered by a batch
+	 * lists out the subtopics to be covered by a batch
 	 * 
-	 * @param batch
+	 * @param batchId - batch to get all subtopics for
 	 * @return List<Subtopic>
 	 */
-	public List<Subtopic> getSubtopicByBatch(Batch batch) {
-		return subtopicRepository.findByBatch(batch);
+	public List<Subtopic> getSubtopicByBatch(int batchId) {
+		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
+		List<Subtopic> subsInBatch = new ArrayList<Subtopic>();
+		for(Topic t : topicsWithBatchId) {
+			subsInBatch.addAll(subtopicRepository.findByParentTopic(t));
+		}
+		return subsInBatch;
 	}
 
 	/**
@@ -83,13 +87,14 @@ public class SubTopicService {
 	 * @author Samuel Louis-Pierre, Avant Mathur
 	 */
 	public void updateSubtopic(Subtopic subtopic) {
-		Long newDate = subtopic.getSubtopicDate().getTime() + 46800000;
-		subtopic.setSubtopicDate(new Timestamp(newDate));
+		Long newDate = subtopic.getDate().getTime() + 46800000;
+		subtopic.setDate(new Timestamp(newDate));
 	    subtopicRepository.save(subtopic);
 	}
 
-	public SubtopicStatus getStatus(String name) {
-		return subtopicStatusRepository.findByName(name);
+	public String getStatus(int subtopicId) {
+		Subtopic subtopic = subtopicRepository.findById(subtopicId).get();
+		return subtopic.getStatus();
 	}
 
 	/**
@@ -102,11 +107,12 @@ public class SubTopicService {
 	 * @author Michael Garza, Gary LaMountain
 	 */
 	public Long getNumberOfSubtopics(int batchId) {
-		return subtopicRepository.countSubtopicsByBatchBatchId(batchId);
-	}
-
-	public List<SubtopicName> getAllSubtopics() {
-		return subtopicNameRepository.findAll();
+		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
+		Long numSubsInBatch = 0L;
+		for(Topic t : topicsWithBatchId) {
+			numSubsInBatch += subtopicRepository.findByParentTopic(t).size();
+		}
+		return numSubsInBatch;
 	}
 
 	public List<Subtopic> getSubtopics() {
@@ -119,18 +125,8 @@ public class SubTopicService {
 	 * @param String name
 	 * @return SubtopicName
 	 */
-	public SubtopicName getSubtopicName(String name) {
-		return subtopicNameRepository.findByName(name);
-	}
-
-	/**
-	 * find the subtopic type entry given the type
-	 * 
-	 * @param int type
-	 * @return SubtopicType
-	 */
-	public SubtopicType getSubtopicType(int type) {
-		return subtopicTypeRepository.findByid(type);
+	public Subtopic getSubtopicByName(String name) {
+		return subtopicRepository.findBySubtopicName(name);
 	}
 
 	/**
