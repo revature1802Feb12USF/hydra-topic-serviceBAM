@@ -26,7 +26,7 @@ public class Batch {
 	@Column(name = "Batch_ID")
 	@SequenceGenerator(name = "BATCH_ID_SEQ", sequenceName = "BATCH_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BATCH_ID_SEQ")
-	private int id;
+	private int batchId;
 
 	public Batch() {
 		super();
@@ -34,15 +34,15 @@ public class Batch {
 
 	public Batch(int batchId) {
 		super();
-		this.id = batchId;
+		this.batchId = batchId;
 	}
 
 	public int getBatchId() {
-		return id;
+		return batchId;
 	}
 
 	public void setBatchId(int batchId) {
-		this.id = batchId;
+		this.batchId = batchId;
 	}
 
 }
