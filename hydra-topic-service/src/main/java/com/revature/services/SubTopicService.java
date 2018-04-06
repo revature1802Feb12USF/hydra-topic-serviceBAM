@@ -9,18 +9,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.Batch;
 import com.revature.model.Subtopic;
-import com.revature.model.SubtopicName;
-import com.revature.model.SubtopicStatus;
 import com.revature.model.SubtopicType;
-import com.revature.repository.SubtopicNameRepository;
 import com.revature.repository.SubtopicRepository;
-import com.revature.repository.SubtopicStatusRepository;
-import com.revature.repository.SubtopicTypeRepository;
+import com.revature.repository.TopicRepository;
 
 @Service
 public class SubTopicService {
+	
+	@Autowired
+	TopicRepository topicRepository;
 	
 	@Autowired
 	SubtopicRepository subtopicRepository;
@@ -30,9 +28,9 @@ public class SubTopicService {
 //
 //	@Autowired
 //	SubtopicStatusRepository subtopicStatusRepository;
-
-	@Autowired
-	SubtopicTypeRepository subtopicTypeRepository;
+//
+//	@Autowired
+//	SubtopicTypeRepository subtopicTypeRepository;
 
 	/**
 	 * adds a subtopic to the list of topics to be reviewed 

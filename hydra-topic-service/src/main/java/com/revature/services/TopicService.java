@@ -34,7 +34,7 @@ public class TopicService {
 	 * @return list of topics for that 1 batch
 	 */
 	public List<Topic> getTopicByBatch(int batchId) {
-		return topicRepo.findByBatchId(batchId);
+		return topicRepo.findByBatchID(batchId);
 	}
 	/**
 	 * Returns all topics in the database
