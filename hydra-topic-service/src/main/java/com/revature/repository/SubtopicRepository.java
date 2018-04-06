@@ -6,31 +6,27 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.revature.model.Batch;
-import com.revature.model.Subtopic;
+import com.revature.beans.Subtopic;
+import com.revature.beans.Topic;
 
 @RepositoryRestResource
 public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
-	List<Subtopic> findByBatch(Batch batch);
-
+	
 	/**
-	 * Counts the number of subtopics in the database by matching it with the
-	 * batchid.
+	 * Finds the subtopic list from a given parent topics
 	 * 
-	 * @param batchId
+	 * @param topic - Topic object that will contain the subtopics returned
 	 * @return number of Subtopics
 	 */
-	// Long countSubtopicsByBatchId(int batchId);
+	List<Subtopic> findByParentTopic(Topic parentTopic);
 
 	/**
-	 * Generate a list of Subtopics by a Batch object and a specific page from a
-	 * Pageable object.
+	 * Counts the number of subtopics in the database by matching it with the given parent topic.
 	 * 
-	 * @param batch
-	 * @param pageable
-	 * @return list of Subtopics
-	 * @author Michael Garza, Gary LaMountain
+	 * @param topic - Topic object that will contain the subtopics counted
+	 * @return number of Subtopics
 	 */
-	List<Subtopic> findByBatch(Batch batch, Pageable pageable);
+	Long countSubtopicsByParentTopic(Topic topic);
 
+	Subtopic findBySubtopicName(String name);
 }

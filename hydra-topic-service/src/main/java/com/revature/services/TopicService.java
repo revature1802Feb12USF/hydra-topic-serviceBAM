@@ -5,74 +5,57 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.Batch;
-import com.revature.model.TopicName;
-import com.revature.model.TopicWeek;
-import com.revature.repository.TopicNameRepository;
-import com.revature.repository.TopicWeekRepository;
+import com.revature.beans.Topic;
+import com.revature.repository.TopicRepository;
 
 @Service
 public class TopicService {
-
-	@Autowired
-	TopicWeekRepository topicWeekRepository;
-
-	@Autowired
-	TopicNameRepository topicNameRepository;
-
-	/**
-	 * adds topic to the topics to be covered by a batch, on a certain week
-	 * 
-	 * @param topicNameId - name id for a new topic object
-	 * @param batch	- batch number for a new topic object
-	 * @param weekNumber - week number for a new topic object
-	 */
-	public void addTopic(int topicNameId, int batch, int weekNumber) {
-		TopicWeek topic = new TopicWeek();
-		TopicName topicName = topicNameRepository.findByid(topicNameId);
+	@Autowired 
+	TopicRepository topicRepo;
 	
-		topic.setTopic(topicName);
-		topic.setBatch(new Batch(batch));
+	/**
+	 * This adds a topic to the required topics of a batch
+	 * @param topicName
+	 * @param batchId
+	 * @param weekNumber
+	 */
+	
+	public void addTopic(String topicName, int batchId, int weekNumber) {
+		Topic topic = new Topic();
+		topic.setTopicName(topicName);
+		topic.setBatchID(batchId);
 		topic.setWeekNumber(weekNumber);
-	
-		topicWeekRepository.save(topic);
+		
+		topicRepo.save(topic);
 	}
-
 	/**
-	 * get all the topics to be covered by a batch
-	 * 
-	 * @param batch - Batch to search for topics in
-	 * @return List<TopicWeek> of the topics for a specific batch
+	 * Get all topics for a batch
+	 * @param batchId
+	 * @return list of topics for that 1 batch
 	 */
-	public List<TopicWeek> getTopicByBatch(Batch batch) {
-		return topicWeekRepository.findByBatch(batch);
+	public List<Topic> getTopicByBatch(int batchId) {
+		return topicRepo.findByBatchID(batchId);
 	}
-
 	/**
-	 * gets all the topics covered by all batches
-	 * 
-	 * @return List<TopicName> of all TopicNames in the database
+	 * Returns all topics in the database
+	 * @return list of topics in the database
 	 */
-	public List<TopicName> getTopics() {
-		return topicNameRepository.findAll();
+	public List<Topic> getTopic(){
+		return topicRepo.findAll();
 	}
-
 	/**
-	 * add or update a topic entry with the given topic entry
-	 * 
-	 * @param topic - TopicName to be stored in the database
+	 * This saves or updates Topic object in the database
+	 * @param topic object
 	 */
-	public void addOrUpdateTopicName(TopicName topic) {
-		topicNameRepository.save(topic);
+	public void addOrUpdateTopic(Topic topic) {
+		topicRepo.save(topic);
 	}
-	  
 	/**
-	 * find a topic entry by its id
-	 * 
-	 * @param id - int to find a specific TopicName with
-	 * @return the TopicName with the given id number
+	 * This returns a Topic object
+	 * @param topicId
+	 * @return a topic
 	 */
-	public TopicName getTopicName(int id) {
-		return topicNameRepository.findByid(id);
-	}	
+	public Topic getTopicById(int topicId) {
+		return topicRepo.findByTopicID(topicId);
+	}
 }
