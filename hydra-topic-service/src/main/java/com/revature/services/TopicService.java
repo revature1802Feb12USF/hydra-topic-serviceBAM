@@ -56,6 +56,6 @@ public class TopicService {
 	 * @return a topic
 	 */
 	public Topic getTopicName(int topicId) {
-		return topicRepo.findOne(topicId);
+		return topicRepo.findById(topicId);
 	}
 }

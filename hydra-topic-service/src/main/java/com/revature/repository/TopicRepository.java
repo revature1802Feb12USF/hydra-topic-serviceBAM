@@ -16,7 +16,7 @@ public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	 * @param TopicId
 	 * @return Topic
 	 */
-	public Topic findOne(Integer id);	
+	public Topic findById(int id);	
 	/**
 	 * @param batchId
 	 * @return list of Topic for a batch
