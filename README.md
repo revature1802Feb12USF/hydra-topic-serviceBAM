@@ -4,8 +4,6 @@ The topic service manages anything having to do with topics that a trainer wants
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
 Java JDK 1.8
@@ -33,7 +31,3 @@ There are none :)
 * **Kevin Green** - *Code cleanup* - [kevinsgreen](https://github.com/kevinsgreen)
 * **Pooja Suresh** - *Code cleanup* - [ps763](https://github.com/ps763)
 * **Nicole Nguyen** - *Code cleanup* - [nknguy](https://github.com/nknguy)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
