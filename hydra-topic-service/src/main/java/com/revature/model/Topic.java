@@ -50,45 +50,44 @@ public class Topic {
 		this.weekNumber = weekNumber;
 	}
 
-
 	public Integer getTopicID() {
 		return topicID;
-	}
+	}//NOSONAR
 
 
 	public void setTopicID(Integer topicID) {
 		this.topicID = topicID;
-	}
+	}//NOSONAR
 
 
 	public String getTopicName() {
 		return topicName;
-	}
+	}//NOSONAR
 
 
 	public void setTopicName(String topicName) {
 		this.topicName = topicName;
-	}
+	}//NOSONAR
 
 
 	public int getBatchID() {
 		return batchID;
-	}
+	}//NOSONAR
 
 
 	public void setBatchID(int batchID) {
 		this.batchID = batchID;
-	}
+	}//NOSONAR
 
 
 	public int getWeekNumber() {
 		return weekNumber;
-	}
+	}//NOSONAR
 
 
 	public void setWeekNumber(int weekNumber) {
 		this.weekNumber = weekNumber;
-	}
+	}//NOSONAR
 
 
 	@Override
