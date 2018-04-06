@@ -2,14 +2,17 @@ spring:
   application:
     name: hydra-topic-service
   datasource:
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@usfjavadb.cxzj3wk2fr9x.us-east-2.rds.amazonaws.com:1521:orcl
-    username: project3
-    password: p4ssw0rd
+    url: jdbc:h2:file:~/test
+    username: roll
+    password: tide
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
-    show-sql: false
-    hibernate.ddl-auto: update
+    show-sql: true
     
 server:
   port: 8889
@@ -20,16 +23,3 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
-
-  
-
-#spring.datasource.url=jdbc:oracle:thin:@bamprod.cvoui7q38caj.us-east-2.rds.amazonaws.com:1521:orcl
-#spring.datasource.username=bamproduser
-#spring.datasource.password=revabam2017
-
-#spring.datasource.url=jdbc:oracle:thin:@bamprod.cvoui7q38caj.us-east-2.rds.amazonaws.com:1521:ORCL
-#spring.datasource.username=bamproduser
-#spring.datasource.password=revabam2017
-
-  
-
