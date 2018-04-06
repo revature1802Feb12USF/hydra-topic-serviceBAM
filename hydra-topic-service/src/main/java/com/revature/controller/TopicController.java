@@ -1,6 +1,7 @@
 package com.revature.controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.model.Subtopic;
-import com.revature.model.SubtopicName;
 import com.revature.model.SubtopicType;
 import com.revature.model.Topic;
-import com.revature.repository.SubtopicNameRepository;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
 
@@ -31,8 +30,8 @@ class TopicController {
 	@Autowired
 	SubTopicService subService;
 
-	@Autowired
-	SubtopicNameRepository subNameRepo;
+//	@Autowired
+//	SubtopicNameRepository subNameRepo;
 	
 	
 	/**
@@ -48,8 +47,8 @@ class TopicController {
 	 */
 	@RequestMapping(value = "/All", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public List<SubtopicName> getAllSubtopicNames() {
-		return subNameRepo.findAll();
+	public List<Subtopic> getAllSubtopics() {
+		return subService.getSubtopics();
 	}
 
 	/**
@@ -79,7 +78,7 @@ class TopicController {
 	public void addTopicName(@RequestBody String name) {
 		
 		Topic topic = new Topic();
-		topic.setName(name);
+		topic.setTopicName(name);
 		topicService.addOrUpdateTopicName(topic);
 	}
 	
@@ -91,11 +90,12 @@ class TopicController {
 	 * @param subtopicName - String to store in a new SubtopicName object as the name
 	 */
 	@PostMapping("/addSubtopicName")
-	public void addSubTopicName(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
+	public void addSubtopic(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
 		
 		SubtopicType type = subService.getSubtopicType(typeId);
 		Topic topic = topicService.getTopicName(topicId);
-		SubtopicName subtopic = new SubtopicName(subtopicName, topic, type);
-		subService.addOrUpdateSubtopicName(subtopic);
+//		Subtopic(subtopicName, status, date, topic);
+		Subtopic subtopic = new Subtopic("new sub", "open", new Timestamp(System.currentTimeMillis()), new Topic("New topic", -1, -1));
+		subService.addOrUpdateSubtopic(subtopic);
 	}
 }

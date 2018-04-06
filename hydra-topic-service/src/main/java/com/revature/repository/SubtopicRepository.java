@@ -14,29 +14,19 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	
 	/**
-	 * Finds the subtopic list by parent topics
+	 * Finds the subtopic list from a given parent topics
 	 * 
-	 * @param batchId
+	 * @param topic - Topic object that will contain the subtopics returned
 	 * @return number of Subtopics
 	 */
 	List<Subtopic> findByParentTopic(Topic parentTopic);
 
 	/**
-	 * Counts the number of subtopics in the database by matching it with the
-	 * batchid.
-	 * @param batchId
+	 * Counts the number of subtopics in the database by matching it with the given parent topic.
+	 * 
+	 * @param topic - Topic object that will contain the subtopics counted
 	 * @return number of Subtopics
 	 */
-	Long countSubtopicsByBatchId(int batchId);
-	
-	/**
-	 * Generate a list of Subtopics by a Batch object and a specific
-	 * page from a Pageable object.
-	 * @param batch
-	 * @param pageable
-	 * @return list of Subtopics
-	 * @author  Michael Garza, Gary LaMountain
-	 */
-	List<Subtopic> findByBatch(Batch batch, Pageable pageable);
+	Long countSubtopicsByParentTopic(Topic topic);
 
 }

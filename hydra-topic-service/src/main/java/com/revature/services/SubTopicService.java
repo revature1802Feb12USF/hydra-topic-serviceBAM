@@ -25,11 +25,11 @@ public class SubTopicService {
 	@Autowired
 	SubtopicRepository subtopicRepository;
 
-	@Autowired
-	SubtopicNameRepository subtopicNameRepository;
-
-	@Autowired
-	SubtopicStatusRepository subtopicStatusRepository;
+//	@Autowired
+//	SubtopicNameRepository subtopicNameRepository;
+//
+//	@Autowired
+//	SubtopicStatusRepository subtopicStatusRepository;
 
 	@Autowired
 	SubtopicTypeRepository subtopicTypeRepository;
@@ -141,7 +141,7 @@ public class SubTopicService {
 	 * @param SubtopicName subtopicName
 	 * @author Brian McKalip
 	 */
-	public void addOrUpdateSubtopicName(SubtopicName subtopicName) {
-		subtopicNameRepository.save(subtopicName);
+	public void addOrUpdateSubtopic(Subtopic subtopic) {
+		subtopicRepository.save(subtopic);
 	}
 }
