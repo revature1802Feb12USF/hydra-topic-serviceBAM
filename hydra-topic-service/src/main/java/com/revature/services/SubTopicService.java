@@ -10,8 +10,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.Subtopic;
-import com.revature.model.Topic;
+import com.revature.beans.Subtopic;
+import com.revature.beans.Topic;
 import com.revature.repository.SubtopicRepository;
 import com.revature.repository.TopicRepository;
 

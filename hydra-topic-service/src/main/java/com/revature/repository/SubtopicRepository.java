@@ -4,11 +4,10 @@ import java.util.List;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.revature.model.Subtopic;
-import com.revature.model.Topic;
-
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import com.revature.beans.Subtopic;
+import com.revature.beans.Topic;
 
 @RepositoryRestResource
 public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
