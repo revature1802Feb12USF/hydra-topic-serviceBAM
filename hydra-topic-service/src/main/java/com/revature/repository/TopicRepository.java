@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.revature.model.Topic;
 
 @Repository
-public interface TopicNameRepository extends JpaRepository<Topic, Integer> {
+public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	
 	/**
 	 * Find all TopicName by id

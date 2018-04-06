@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.revature.model.Batch;
 import com.revature.model.Topic;
 import com.revature.model.TopicWeek;
-import com.revature.repository.TopicNameRepository;
+import com.revature.repository.TopicRepository;
 import com.revature.repository.TopicWeekRepository;
 
 @Service
@@ -18,7 +18,7 @@ public class TopicService {
 	TopicWeekRepository topicWeekRepository;
 
 	@Autowired
-	TopicNameRepository topicNameRepository;
+	TopicRepository topicNameRepository;
 
 	/**
 	 * adds topic to the topics to be covered by a batch, on a certain week
