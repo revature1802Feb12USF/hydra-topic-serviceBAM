@@ -1,15 +1,28 @@
 package com.revature.repository;
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 import com.revature.model.Topic;
+
+
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Integer> {
- 
- /**
-  * Find all TopicName by id
-  * @param Topicname id
-  * @return TopicName
-  */
- public Topic findByid(Integer id);
+	
+	/**
+	 * Find Topic by TopicID
+	 * @param TopicId
+	 * @return Topic
+	 */
+	public Topic findOne(Integer id);	
+	/**
+	 * @param batchId
+	 * @return list of Topic for a batch
+	 */
+	public List<Topic> findByBatchId(int batchId);
+	
+	
+	
 }
-
