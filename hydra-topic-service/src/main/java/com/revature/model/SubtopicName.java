@@ -39,7 +39,7 @@ public class SubtopicName {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Subtopic_Topic", referencedColumnName = "Topic_ID")
 	@Autowired
-	private TopicName topic;
+	private Topic topic;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Subtopic_Type", referencedColumnName = "Type_ID")
@@ -50,7 +50,7 @@ public class SubtopicName {
 		super();
 	}
 
-	public SubtopicName(String name, TopicName topic, SubtopicType type) {
+	public SubtopicName(String name, Topic topic, SubtopicType type) {
 		super();
 		this.name = name;
 		this.topic = topic;
@@ -73,11 +73,11 @@ public class SubtopicName {
 		this.name = name;
 	}
 
-	public TopicName getTopic() {
+	public Topic getTopic() {
 		return topic;
 	}
 
-	public void setTopic(TopicName topic) {
+	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
 

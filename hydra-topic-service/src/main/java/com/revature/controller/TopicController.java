@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.model.Subtopic;
 import com.revature.model.SubtopicName;
 import com.revature.model.SubtopicType;
-import com.revature.model.TopicName;
+import com.revature.model.Topic;
 import com.revature.repository.SubtopicNameRepository;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
@@ -39,8 +39,8 @@ class TopicController {
 	 * @return a new TopicName object for when the user reaches each page
 	 */
 	@GetMapping("/")
-	public TopicName home(){
-		return new TopicName("New Topic");
+	public Topic home(){
+		return new Topic("New Topic");
 	}
 	
 	/**
@@ -78,7 +78,7 @@ class TopicController {
 	@PostMapping("/Add")
 	public void addTopicName(@RequestBody String name) {
 		
-		TopicName topic = new TopicName();
+		Topic topic = new Topic();
 		topic.setName(name);
 		topicService.addOrUpdateTopicName(topic);
 	}
@@ -94,7 +94,7 @@ class TopicController {
 	public void addSubTopicName(@RequestBody int typeId, @RequestBody int topicId, @RequestBody String subtopicName) {
 		
 		SubtopicType type = subService.getSubtopicType(typeId);
-		TopicName topic = topicService.getTopicName(topicId);
+		Topic topic = topicService.getTopicName(topicId);
 		SubtopicName subtopic = new SubtopicName(subtopicName, topic, type);
 		subService.addOrUpdateSubtopicName(subtopic);
 	}

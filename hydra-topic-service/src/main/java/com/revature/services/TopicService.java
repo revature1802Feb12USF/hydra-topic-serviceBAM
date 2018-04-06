@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.model.Batch;
-import com.revature.model.TopicName;
+import com.revature.model.Topic;
 import com.revature.model.TopicWeek;
 import com.revature.repository.TopicNameRepository;
 import com.revature.repository.TopicWeekRepository;
@@ -29,7 +29,7 @@ public class TopicService {
 	 */
 	public void addTopic(int topicNameId, int batch, int weekNumber) {
 		TopicWeek topic = new TopicWeek();
-		TopicName topicName = topicNameRepository.findByid(topicNameId);
+		Topic topicName = topicNameRepository.findByid(topicNameId);
 	
 		topic.setTopic(topicName);
 		topic.setBatch(new Batch(batch));
@@ -53,7 +53,7 @@ public class TopicService {
 	 * 
 	 * @return List<TopicName> of all TopicNames in the database
 	 */
-	public List<TopicName> getTopics() {
+	public List<Topic> getTopics() {
 		return topicNameRepository.findAll();
 	}
 
@@ -62,7 +62,7 @@ public class TopicService {
 	 * 
 	 * @param topic - TopicName to be stored in the database
 	 */
-	public void addOrUpdateTopicName(TopicName topic) {
+	public void addOrUpdateTopicName(Topic topic) {
 		topicNameRepository.save(topic);
 	}
 	  
@@ -72,7 +72,7 @@ public class TopicService {
 	 * @param id - int to find a specific TopicName with
 	 * @return the TopicName with the given id number
 	 */
-	public TopicName getTopicName(int id) {
+	public Topic getTopicName(int id) {
 		return topicNameRepository.findByid(id);
 	}	
 }
