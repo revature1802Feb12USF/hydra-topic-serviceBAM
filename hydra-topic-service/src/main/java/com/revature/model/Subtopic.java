@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
 public class Subtopic {
 
 	@Id
-	@Column(name = "Subtopic_Id")
+	@Column(name = "Id")
 	@SequenceGenerator(name = "SUBTOPIC_SEQ", sequenceName = "SUBTOPIC_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUBTOPIC_SEQ")
 	private int subtopicId;
@@ -51,8 +51,59 @@ public class Subtopic {
 	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "TOPIC_ID")
 	@Autowired
 	private Topic parentTopic;
-
 	
+	
+	public Subtopic() {
+		super();
+	}
+
+	public Subtopic(String subtopicName, String status, Timestamp date, Topic parentTopic) {
+		super();
+		this.subtopicName = subtopicName;
+		this.status = status;
+		this.date = date;
+		this.parentTopic = parentTopic;
+	}
+
+	public int getSubtopicId() {
+		return subtopicId;
+	}
+
+	public void setSubtopicId(int subtopicId) {
+		this.subtopicId = subtopicId;
+	}
+
+	public String getSubtopicName() {
+		return subtopicName;
+	}
+
+	public void setSubtopicName(String subtopicName) {
+		this.subtopicName = subtopicName;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Timestamp getDate() {
+		return date;
+	}
+
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+
+	public Topic getParentTopic() {
+		return parentTopic;
+	}
+
+	public void setParentTopic(Topic parentTopic) {
+		this.parentTopic = parentTopic;
+	}
 
 	@Override
 	public String toString() {
