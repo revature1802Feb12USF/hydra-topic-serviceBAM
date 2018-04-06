@@ -17,7 +17,7 @@ import com.revature.repository.TopicRepository;
 
 @Service
 public class SubTopicService {
-	
+
 	@Autowired
 	TopicRepository topicRepository;
 	
@@ -34,8 +34,8 @@ public class SubTopicService {
 //	SubtopicTypeRepository subtopicTypeRepository;
 
 	/**
-	 * adds a subtopic to the list of topics to be reviewed 
-	 * for a batch, with the given id
+	 * adds a subtopic to the list of topics to be reviewed for a batch, with the
+	 * given id
 	 * 
 	 * @param subtopic
 	 * @param batch
@@ -80,9 +80,8 @@ public class SubTopicService {
 	/**
 	 * 
 	 * @param subtopic
-	 *          Persisting subtopic to database.
-	 *          To handle timezone offset, before submission to DB,
-	 *          adding offset to date and updating date.
+	 *            Persisting subtopic to database. To handle timezone offset, before
+	 *            submission to DB, adding offset to date and updating date.
 	 * 
 	 * @author Samuel Louis-Pierre, Avant Mathur
 	 */
@@ -122,7 +121,8 @@ public class SubTopicService {
 	/**
 	 * find the subtopic entry given the name
 	 * 
-	 * @param String name
+	 * @param String
+	 *            name
 	 * @return SubtopicName
 	 */
 	public Subtopic getSubtopicByName(String name) {
@@ -132,7 +132,8 @@ public class SubTopicService {
 	/**
 	 * add or update the subtopic entry with the given entry
 	 * 
-	 * @param SubtopicName subtopicName
+	 * @param SubtopicName
+	 *            subtopicName
 	 * @author Brian McKalip
 	 */
 	public void addOrUpdateSubtopic(Subtopic subtopic) {
