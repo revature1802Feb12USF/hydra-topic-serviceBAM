@@ -21,7 +21,7 @@ import com.revature.repository.SubtopicTypeRepository;
 
 @Service
 public class SubTopicService {
-	
+
 	@Autowired
 	SubtopicRepository subtopicRepository;
 
@@ -35,13 +35,13 @@ public class SubTopicService {
 	SubtopicTypeRepository subtopicTypeRepository;
 
 	/**
-	 * adds a subtopic to the list of topics to be reviewed 
-	 * for a batch, with the given id
+	 * adds a subtopic to the list of topics to be reviewed for a batch, with the
+	 * given id
 	 * 
 	 * @param subtopic
 	 * @param batch
 	 */
-	public void addSubtopic(int subtopic, int batch){
+	public void addSubtopic(int subtopic, int batch) {
 		Subtopic s = new Subtopic();
 		Batch b;
 		SubtopicName st;
@@ -58,11 +58,11 @@ public class SubTopicService {
 		Timestamp ts = new Timestamp(time);
 		st = subtopicNameRepository.findByid(subtopic);
 		ss = subtopicStatusRepository.findByid(1);
-	
+
 		s.setSubtopicName(st);
 		s.setStatus(ss);
 		s.setSubtopicDate(ts);
-	    subtopicRepository.save(s);
+		subtopicRepository.save(s);
 	}
 
 	/**
@@ -78,16 +78,15 @@ public class SubTopicService {
 	/**
 	 * 
 	 * @param subtopic
-	 *          Persisting subtopic to database.
-	 *          To handle timezone offset, before submission to DB,
-	 *          adding offset to date and updating date.
+	 *            Persisting subtopic to database. To handle timezone offset, before
+	 *            submission to DB, adding offset to date and updating date.
 	 * 
 	 * @author Samuel Louis-Pierre, Avant Mathur
 	 */
 	public void updateSubtopic(Subtopic subtopic) {
 		Long newDate = subtopic.getSubtopicDate().getTime() + 46800000;
 		subtopic.setSubtopicDate(new Timestamp(newDate));
-	    subtopicRepository.save(subtopic);
+		subtopicRepository.save(subtopic);
 	}
 
 	public SubtopicStatus getStatus(String name) {
@@ -104,7 +103,8 @@ public class SubTopicService {
 	 * @author Michael Garza, Gary LaMountain
 	 */
 	public Long getNumberOfSubtopics(int batchId) {
-		return subtopicRepository.countSubtopicsByBatchId(batchId);
+		return -1L;
+		// return subtopicRepository.countSubtopicsByBatchId(batchId);
 	}
 
 	public List<SubtopicName> getAllSubtopics() {
@@ -118,7 +118,8 @@ public class SubTopicService {
 	/**
 	 * find the subtopic entry given the name
 	 * 
-	 * @param String name
+	 * @param String
+	 *            name
 	 * @return SubtopicName
 	 */
 	public SubtopicName getSubtopicName(String name) {
@@ -128,7 +129,8 @@ public class SubTopicService {
 	/**
 	 * find the subtopic type entry given the type
 	 * 
-	 * @param int type
+	 * @param int
+	 *            type
 	 * @return SubtopicType
 	 */
 	public SubtopicType getSubtopicType(int type) {
@@ -138,7 +140,8 @@ public class SubTopicService {
 	/**
 	 * add or update the subtopic entry with the given entry
 	 * 
-	 * @param SubtopicName subtopicName
+	 * @param SubtopicName
+	 *            subtopicName
 	 * @author Brian McKalip
 	 */
 	public void addOrUpdateSubtopicName(SubtopicName subtopicName) {
