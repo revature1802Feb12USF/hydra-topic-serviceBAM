@@ -12,9 +12,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
+	
 	/**
-	 * Counts the number of subtopics in the database by matching it with the
-	 * batchid.
+	 * Finds the subtopic list by parent topics
+	 * 
 	 * @param batchId
 	 * @return number of Subtopics
 	 */

@@ -43,9 +43,8 @@ public class Topic {
 		super();
 	}
 
-	public Topic(Integer topicID, String topicName, int batchID, int weekNumber) {
+	public Topic(String topicName, int batchID, int weekNumber) {
 		super();
-		this.topicID = topicID;
 		this.topicName = topicName;
 		this.batchID = batchID;
 		this.weekNumber = weekNumber;

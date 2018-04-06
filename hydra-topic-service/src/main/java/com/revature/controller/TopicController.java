@@ -40,7 +40,7 @@ class TopicController {
 	 */
 	@GetMapping("/")
 	public Topic home(){
-		return new Topic("New Topic");
+		return new Topic("New Topic", -1, -1);
 	}
 	
 	/**
