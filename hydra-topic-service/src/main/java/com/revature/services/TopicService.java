@@ -47,7 +47,7 @@ public class TopicService {
 	 * This saves or updates Topic object in the database
 	 * @param topic object
 	 */
-	public void addOrUpdateTopicName(Topic topic) {
+	public void addOrUpdateTopic(Topic topic) {
 		topicRepo.save(topic);
 	}
 	/**

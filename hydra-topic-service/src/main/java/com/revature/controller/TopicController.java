@@ -21,11 +21,10 @@ class TopicController {
 	 * 
 	 * @param name - String for the name of the topic to be added
 	 */
-	@PostMapping("/Add")
-	public void addTopicName(@RequestBody String name) {
-		
+	@PostMapping("/topic")
+	public void addTopic(@RequestBody String name) {
 		Topic topic = new Topic();
 		topic.setTopicName(name);
-		topicService.addOrUpdateTopicName(topic);
+		topicService.addOrUpdateTopic(topic);
 	}
 }
