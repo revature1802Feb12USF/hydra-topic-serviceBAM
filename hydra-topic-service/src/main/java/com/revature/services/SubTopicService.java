@@ -104,7 +104,7 @@ public class SubTopicService {
 	 * @author Michael Garza, Gary LaMountain
 	 */
 	public Long getNumberOfSubtopics(int batchId) {
-		return subtopicRepository.countSubtopicsByBatchId(batchId);
+		return subtopicRepository.countSubtopicsByBatchBatchId(batchId);
 	}
 
 	public List<SubtopicName> getAllSubtopics() {
