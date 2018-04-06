@@ -19,7 +19,7 @@ public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	 * @param batchId
 	 * @return number of Subtopics
 	 */
-	Long countSubtopicsByBatchId(int batchId);
+	Long countSubtopicsByBatchBatchId(int batchId);
 	
 	/**
 	 * Generate a list of Subtopics by a Batch object and a specific

@@ -11,6 +11,6 @@ public interface BatchRepository extends JpaRepository<Batch, Integer> {
 	 * @param batch id
 	 * @return batch by id
 	 */
-	public Batch findByid(Integer id);
+	public Batch findByBatchId(Integer id);
 
 }
