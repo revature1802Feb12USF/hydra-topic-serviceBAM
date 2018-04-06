@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Subtopic;
-import com.revature.model.SubtopicName;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
 
@@ -27,6 +26,6 @@ public class SubTopicController {
 	 */
 	@GetMapping("/subTop")
 	public Subtopic home() {
-		return new Subtopic(new SubtopicName("Java", null, null), null, null, null);
+		return new Subtopic(null, null, null, null);
 	}
 }

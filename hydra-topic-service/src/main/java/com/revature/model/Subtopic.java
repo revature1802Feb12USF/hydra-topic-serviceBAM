@@ -21,10 +21,10 @@ import org.springframework.stereotype.Component;
  * 
  * <ul>
  * <li> subtopicId - int
- * <li> subtopicName - SubtopicName
- * <li> batch - Batch
+ * <li> subtopicName - String
  * <li> status - SubtopicStatus
- * <li> subtopicDate - Timestamp
+ * <li> date - Timestamp
+ * <li> parentTopic - Topic
  * </ul>
  */
 @Entity
@@ -48,7 +48,7 @@ public class Subtopic {
 	private Timestamp date;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "TOPIC_ID")
+	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "Topic_ID")
 	@Autowired
 	private Topic parentTopic;
 	
@@ -104,17 +104,15 @@ public class Subtopic {
 	public void setParentTopic(Topic parentTopic) {
 		this.parentTopic = parentTopic;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Subtopic [\n" + "(Subtopic ID) \t subtopicId=" + subtopicId + 
-				",\n"
-				+ "(Batch ID) \t batch=" + batch + 
-				",\n"
-				+ "(Subtopic date) \t subtopicDate=" + subtopicDate + 
-				",\n"
-				+ "(Subtopic status) \t status=" + status +
-				"\n"
+		return "Subtopic [\n" 
+				+ "(Subtopic ID) \t subtopicId=" + subtopicId + ",\n"
+				+ "(Subtopic's Status) \t status=" + status+ ",\n"
+				+ "(Subtopic's Name) \t subtopicName=" + subtopicName+ ",\n"
+				+ "(Subtopic's Date) \t date=" + date + ",\n"
+				+ "(Parent topic) \t parentTopic=" + parentTopic.toString() + ",\n"
 				+ "]";
 	}
 

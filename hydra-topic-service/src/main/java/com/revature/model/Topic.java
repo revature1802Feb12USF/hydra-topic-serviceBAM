@@ -38,6 +38,7 @@ public class Topic {
 	@Column(name = "Week_Number")
 	private int weekNumber;
 	
+	
 	public Topic() {
 		super();
 	}
