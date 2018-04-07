@@ -14,13 +14,15 @@ import org.springframework.stereotype.Component;
  * Bean Class for SubTopic Status
  * 
  * <ul>
- * <li> id (change to topicNameId)
- * <li> name (change to topicName)
- * </ul>
+ * <li> topicID - int - auto-generated ID number (PK)
+ * <li> topicName - String - name of the topic
+ * <li> batchID - int - id number of the batch associated with this topic
+ * <li> weekNumber - int - week that this topic will be covered in the specific batch
+ * </ul> 
  */
 @Component
 @Entity
-@Table(name = "Topic_Name")
+@Table(name = "Topic")
 public class Topic {
 
 	@Id
