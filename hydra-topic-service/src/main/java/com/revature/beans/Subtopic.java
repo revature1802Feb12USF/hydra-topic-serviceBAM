@@ -20,11 +20,11 @@ import org.springframework.stereotype.Component;
  * Bean Class for SubTopic
  * 
  * <ul>
- * <li> subtopicId - int
- * <li> subtopicName - String
- * <li> status - SubtopicStatus
- * <li> date - Timestamp
- * <li> parentTopic - Topic
+ * <li> subtopicId - int - auto-generated ID number (PK)
+ * <li> subtopicName - String - name of the subtopic
+ * <li> status - String - current status of the topic ("Complete", "Not covered", etc)
+ * <li> date - Timestamp - calendar time/day this subtopic will be covered
+ * <li> parentTopic - Topic - the topic object that contains this subtopic
  * </ul>
  */
 @Entity
