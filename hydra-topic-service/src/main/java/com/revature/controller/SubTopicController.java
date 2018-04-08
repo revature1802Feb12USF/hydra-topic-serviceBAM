@@ -1,29 +1,25 @@
 package com.revature.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Subtopic;
 import com.revature.beans.Topic;
 import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
 
 @RestController
-@RequestMapping(value = "/api/v2/Subtopic/")
 public class SubTopicController {
 
 	@Autowired
 	SubTopicService subTopicService;
-	
+
 	@Autowired
 	TopicService topicService;
 
@@ -39,8 +35,10 @@ public class SubTopicController {
 	/**
 	 * Adds a new SubtopicName object to the SubtopicName table in the database
 	 * 
-	 * @param topicId - int to store in a new SubtopicName object as the topic
-	 * @param subtopicName - String to store in a new SubtopicName object as the name
+	 * @param topicId
+	 *            - int to store in a new SubtopicName object as the topic
+	 * @param subtopicName
+	 *            - String to store in a new SubtopicName object as the name
 	 */
 	@PostMapping("/subtopic")
 	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
