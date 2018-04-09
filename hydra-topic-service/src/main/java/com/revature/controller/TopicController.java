@@ -14,7 +14,6 @@ import com.revature.services.TopicService;
  * 
  * ~~All mappings~~
  */
-
 @RestController
 class TopicController {
 
@@ -36,7 +35,6 @@ class TopicController {
 		topicService.addOrUpdateTopic(topic);
 	}
 
-	
 	/**
 	 * returns all topics in database
 	 * 
