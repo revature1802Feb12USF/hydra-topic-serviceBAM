@@ -24,6 +24,7 @@ public class SubTopicService {
 	 * 
 	 * @param subtopic
 	 * @param batch
+	 * @author Trevor Fortner, Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public void addSubtopic(String name, Topic parentTopic) {
 		Subtopic newSubtopic = new Subtopic();
@@ -48,11 +49,21 @@ public class SubTopicService {
 	    subtopicRepository.save(subtopic);
 	}
 
+	/**
+	 * 
+	 * @param subtopicId
+	 * @return
+	 */
 	public String getStatus(int subtopicId) {
 		Subtopic subtopic = subtopicRepository.findById(subtopicId).get();
 		return subtopic.getStatus();
 	}
 
+	/**
+	 * 
+	 * @return
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
+	 */
 	public List<Subtopic> getSubtopics() {
 		return subtopicRepository.findAll();
 	}
@@ -62,6 +73,7 @@ public class SubTopicService {
 	 * @param ids - list of ids to search with
 	 * 
 	 * @return list of subtopics with those ids
+	 * @author Trevor Fortner- Batch Matt 1802
 	 */
 	public List<Subtopic> getSubtopicsByIds(List<Integer> ids){		
 		return subtopicRepository.findBySubtopicIdIn(ids); 
@@ -73,6 +85,7 @@ public class SubTopicService {
 	 * @param String
 	 *            name
 	 * @return SubtopicName
+	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	public Subtopic getSubtopicByName(String name) {
 		return subtopicRepository.findBySubtopicName(name);

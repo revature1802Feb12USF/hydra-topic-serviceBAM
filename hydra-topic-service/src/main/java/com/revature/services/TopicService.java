@@ -16,6 +16,7 @@ public class TopicService {
 	/**
 	 * This adds a topic to the required topics of a batch
 	 * @param topicName
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public void addTopic(String topicName) {
 		Topic topic = new Topic();
@@ -36,6 +37,7 @@ public class TopicService {
 	/**
 	 * Returns all topics in the database
 	 * @return list of topics in the database
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public List<Topic> getTopic(){
 		return topicRepo.findAll();
@@ -44,6 +46,7 @@ public class TopicService {
 	/**
 	 * This saves or updates Topic object in the database
 	 * @param topic object
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public void addOrUpdateTopic(Topic topic) {
 		topicRepo.save(topic);
@@ -53,6 +56,7 @@ public class TopicService {
 	 * This returns a Topic object
 	 * @param topicId
 	 * @return a topic
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public Topic getTopicById(int topicId) {
 		return topicRepo.findByTopicID(topicId);

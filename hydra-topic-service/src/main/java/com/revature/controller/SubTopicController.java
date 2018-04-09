@@ -35,6 +35,7 @@ public class SubTopicController {
 
 	/**
 	 * @return a JSON containing all the current subtopic names in the database
+	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
 	@ResponseBody
@@ -49,6 +50,7 @@ public class SubTopicController {
 	 *            - int to store in a new SubtopicName object as the topic
 	 * @param subtopicName
 	 *            - String to store in a new SubtopicName object as the name
+	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	@PostMapping("/subtopics")
 	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
