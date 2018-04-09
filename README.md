@@ -13,6 +13,14 @@ Spring Tool Suite (STS)
 
 ### Installing
 
+Download OJDBC8.jar if you don't have it.
+http://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html
+
+Run maven install goal
+Change Z:\Program Files\OJDBC\ojdbc8.jar to location of your jar. 
+Don't move it after running!
+mvn install:install-file -Dfile="Z:\Program Files\OJDBC\ojdbc8.jar" -DgroupId=com.oracle -DartifactId=ojdbc8 -Dversion=12.2.0.1 -Dpackaging=jar
+
 Either:
 - Download the ZIP for the repo and unzip it
 - Clone the repo
