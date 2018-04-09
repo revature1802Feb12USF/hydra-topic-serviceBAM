@@ -16,8 +16,6 @@ import org.springframework.stereotype.Component;
  * <ul>
  * <li> topicID - int - auto-generated ID number (PK)
  * <li> topicName - String - name of the topic
- * <li> batchID - int - id number of the batch associated with this topic
- * <li> weekNumber - int - week that this topic will be covered in the specific batch
  * </ul> 
  */
 @Component
@@ -33,23 +31,15 @@ public class Topic {
 
 	@Column(name = "Topic_Name")
 	private String topicName;
-
-	@Column(name = "Batch_ID")
-	private int batchID;
-	
-	@Column(name = "Week_Number")
-	private int weekNumber;
 	
 	
 	public Topic() {
 		super();
 	}
 
-	public Topic(String topicName, int batchID, int weekNumber) {
+	public Topic(String topicName) {
 		super();
 		this.topicName = topicName;
-		this.batchID = batchID;
-		this.weekNumber = weekNumber;
 	}
 
 	public Integer getTopicID() {
@@ -72,33 +62,10 @@ public class Topic {
 	}//NOSONAR
 
 
-	public int getBatchID() {
-		return batchID;
-	}//NOSONAR
-
-
-	public void setBatchID(int batchID) {
-		this.batchID = batchID;
-	}//NOSONAR
-
-
-	public int getWeekNumber() {
-		return weekNumber;
-	}//NOSONAR
-
-
-	public void setWeekNumber(int weekNumber) {
-		this.weekNumber = weekNumber;
-	}//NOSONAR
-
-
 	@Override
 	public String toString() {
 		return "TopicName [\n" +"(Topic ID) \t topicID = " + topicID + ",\n "
-				+ "(Topic name) \t topicName = " + topicName + ", \n"
-				+ "(Batch ID) \t batchID = " + batchID + ", \n"
-				+ "(Week Number) \t weekNumber = " + weekNumber + ", \n"
-				+ "]";
+				+ "(Topic name) \t topicName = " + topicName + "]";
 	}//NOSONAR
 
 }

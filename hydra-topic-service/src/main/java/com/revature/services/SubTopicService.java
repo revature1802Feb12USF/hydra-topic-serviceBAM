@@ -24,15 +24,6 @@ public class SubTopicService {
 	@Autowired
 	SubtopicRepository subtopicRepository;
 
-//	@Autowired
-//	SubtopicNameRepository subtopicNameRepository;
-//
-//	@Autowired
-//	SubtopicStatusRepository subtopicStatusRepository;
-//
-//	@Autowired
-//	SubtopicTypeRepository subtopicTypeRepository;
-
 	/**
 	 * adds a subtopic to the list of topics to be reviewed for a batch, with the
 	 * given id
@@ -42,19 +33,8 @@ public class SubTopicService {
 	 */
 	public void addSubtopic(String name, Topic parentTopic) {
 		Subtopic newSubtopic = new Subtopic();
-		Date date = new Date();
-
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			date = dateFormat.parse("23/09/2017");
-		} catch (Exception e) {
-			System.out.println("Error");
-		}
-		long time = date.getTime();
-		Timestamp timeForSubtopic = new Timestamp(time);
 		String newStatus = "Not covered";
 		
-		newSubtopic.setDate(timeForSubtopic);
 		newSubtopic.setSubtopicName(name);
 		newSubtopic.setStatus(newStatus);
 		newSubtopic.setParentTopic(parentTopic);	
@@ -86,8 +66,6 @@ public class SubTopicService {
 	 * @author Samuel Louis-Pierre, Avant Mathur
 	 */
 	public void updateSubtopic(Subtopic subtopic) {
-		Long newDate = subtopic.getDate().getTime() + 46800000;
-		subtopic.setDate(new Timestamp(newDate));
 	    subtopicRepository.save(subtopic);
 	}
 
