@@ -1,10 +1,4 @@
 package com.revature.services;
-
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,21 +37,6 @@ public class SubTopicService {
 	}
 
 	/**
-	 * lists out the subtopics to be covered by a batch
-	 * 
-	 * @param batchId - batch to get all subtopics for
-	 * @return List<Subtopic>
-	 */
-//	public List<Subtopic> getSubtopicByBatch(int batchId) {
-//		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-//		List<Subtopic> subsInBatch = new ArrayList<Subtopic>();
-//		for(Topic t : topicsWithBatchId) {
-//			subsInBatch.addAll(subtopicRepository.findByParentTopic(t));
-//		}
-//		return subsInBatch;
-//	}
-
-	/**
 	 * 
 	 * @param subtopic
 	 *            Persisting subtopic to database. To handle timezone offset, before
@@ -73,24 +52,6 @@ public class SubTopicService {
 		Subtopic subtopic = subtopicRepository.findById(subtopicId).get();
 		return subtopic.getStatus();
 	}
-
-	/**
-	 * Service method to return the number of Subtopics by matching their ids with
-	 * the batchId.
-	 * 
-	 * @param batchId(int)
-	 * @return number(long) of Subtopics
-	 * 
-	 * @author Michael Garza, Gary LaMountain
-	 */
-//	public Long getNumberOfSubtopics(int batchId) {
-//		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-//		Long numSubsInBatch = 0L;
-//		for(Topic t : topicsWithBatchId) {
-//			numSubsInBatch += subtopicRepository.findByParentTopic(t).size();
-//		}
-//		return numSubsInBatch;
-//	}
 
 	public List<Subtopic> getSubtopics() {
 		return subtopicRepository.findAll();
