@@ -2,7 +2,6 @@ package com.revature.repository;
 
 import java.util.List;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -29,4 +28,11 @@ public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	Long countSubtopicsByParentTopic(Topic topic);
 
 	Subtopic findBySubtopicName(String name);
+	
+	/**
+	 * @param ids - list of ids to search with
+	 * 
+	 * @return list of subtopics with those ids
+	 */
+	List<Subtopic> findBySubtopicIdIn(List<Integer> ids);
 }
