@@ -1,10 +1,4 @@
 package com.revature.services;
-
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +24,7 @@ public class SubTopicService {
 	 * 
 	 * @param subtopic
 	 * @param batch
+	 * @author Trevor Fortner, Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	public void addSubtopic(String name, Topic parentTopic) {
 		Subtopic newSubtopic = new Subtopic();
@@ -40,21 +35,6 @@ public class SubTopicService {
 		newSubtopic.setParentTopic(parentTopic);	
 		
 	    subtopicRepository.save(newSubtopic);
-	}
-
-	/**
-	 * lists out the subtopics to be covered by a batch
-	 * 
-	 * @param batchId - batch to get all subtopics for
-	 * @return List<Subtopic>
-	 */
-	public List<Subtopic> getSubtopicByBatch(int batchId) {
-		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-		List<Subtopic> subsInBatch = new ArrayList<Subtopic>();
-		for(Topic t : topicsWithBatchId) {
-			subsInBatch.addAll(subtopicRepository.findByParentTopic(t));
-		}
-		return subsInBatch;
 	}
 
 	/**
@@ -69,31 +49,34 @@ public class SubTopicService {
 	    subtopicRepository.save(subtopic);
 	}
 
+	/**
+	 * 
+	 * @param subtopicId
+	 * @return
+	 */
 	public String getStatus(int subtopicId) {
 		Subtopic subtopic = subtopicRepository.findById(subtopicId).get();
 		return subtopic.getStatus();
 	}
 
 	/**
-	 * Service method to return the number of Subtopics by matching their ids with
-	 * the batchId.
 	 * 
-	 * @param batchId(int)
-	 * @return number(long) of Subtopics
-	 * 
-	 * @author Michael Garza, Gary LaMountain
+	 * @return
+	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
-	public Long getNumberOfSubtopics(int batchId) {
-		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-		Long numSubsInBatch = 0L;
-		for(Topic t : topicsWithBatchId) {
-			numSubsInBatch += subtopicRepository.findByParentTopic(t).size();
-		}
-		return numSubsInBatch;
-	}
-
 	public List<Subtopic> getSubtopics() {
 		return subtopicRepository.findAll();
+	}
+	
+	
+	/**
+	 * @param ids - list of ids to search with
+	 * 
+	 * @return list of subtopics with those ids
+	 * @author Trevor Fortner- Batch Matt 1802
+	 */
+	public List<Subtopic> getSubtopicsByIds(List<Integer> ids){		
+		return subtopicRepository.findBySubtopicIdIn(ids); 
 	}
 
 	/**
@@ -102,6 +85,7 @@ public class SubTopicService {
 	 * @param String
 	 *            name
 	 * @return SubtopicName
+	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	public Subtopic getSubtopicByName(String name) {
 		return subtopicRepository.findBySubtopicName(name);
