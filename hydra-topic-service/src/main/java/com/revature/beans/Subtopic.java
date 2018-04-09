@@ -1,7 +1,5 @@
 package com.revature.beans;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +21,6 @@ import org.springframework.stereotype.Component;
  * <li> subtopicId - int - auto-generated ID number (PK)
  * <li> subtopicName - String - name of the subtopic
  * <li> status - String - current status of the topic ("Complete", "Not covered", etc)
- * <li> date - Timestamp - calendar time/day this subtopic will be covered
  * <li> parentTopic - Topic - the topic object that contains this subtopic
  * </ul>
  */
@@ -44,9 +41,6 @@ public class Subtopic {
 	@Column(name = "Status")
 	private String status;
 
-	@Column(name = "Date")
-	private Timestamp date;
-
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "Topic_ID")
 	@Autowired
@@ -57,11 +51,10 @@ public class Subtopic {
 		super();
 	}
 
-	public Subtopic(String subtopicName, String status, Timestamp date, Topic parentTopic) {
+	public Subtopic(String subtopicName, String status, Topic parentTopic) {
 		super();
 		this.subtopicName = subtopicName;
 		this.status = status;
-		this.date = date;
 		this.parentTopic = parentTopic;
 	}
 
@@ -89,14 +82,6 @@ public class Subtopic {
 		this.status = status;
 	}
 
-	public Timestamp getDate() {
-		return date;
-	}
-
-	public void setDate(Timestamp date) {
-		this.date = date;
-	}
-
 	public Topic getParentTopic() {
 		return parentTopic;
 	}
@@ -111,9 +96,7 @@ public class Subtopic {
 				+ "(Subtopic ID) \t subtopicId=" + subtopicId + ",\n"
 				+ "(Subtopic's Status) \t status=" + status+ ",\n"
 				+ "(Subtopic's Name) \t subtopicName=" + subtopicName+ ",\n"
-				+ "(Subtopic's Date) \t date=" + date + ",\n"
-				+ "(Parent topic) \t parentTopic=" + parentTopic.toString() + ",\n"
-				+ "]";
+				+ "(Parent topic) \t parentTopic=" + parentTopic.toString() + "]";
 	}
 
 }
