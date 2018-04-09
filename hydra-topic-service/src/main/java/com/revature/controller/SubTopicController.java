@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +19,9 @@ import com.revature.services.TopicService;
  * @author Trevor Fortner
  * handles ZUUL endpoint /topics
  * 
- * ~~All mappings~~
+ * "/subtopics" - GET - returns the list of all subtopics
+ * "/subtopics" - POST - takes in a parent topic ID and a subtopic name, creates new subtopic entry
+ * "/subtopics/multiple{ids}" - GET - returns the list of subtopics that match the ids in the list
  */
 
 @RestController
