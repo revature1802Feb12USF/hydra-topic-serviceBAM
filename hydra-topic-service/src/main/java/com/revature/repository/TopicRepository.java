@@ -1,7 +1,5 @@
 package com.revature.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,12 +15,4 @@ public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	 * @return Topic
 	 */
 	public Topic findByTopicID(int id);	
-	/**
-	 * @param batchId
-	 * @return list of Topic for a batch
-	 */
-	public List<Topic> findByBatchID(int batchId);
-	
-	
-	
 }

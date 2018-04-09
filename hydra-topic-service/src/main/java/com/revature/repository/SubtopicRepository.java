@@ -29,4 +29,11 @@ public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	Long countSubtopicsByParentTopic(Topic topic);
 
 	Subtopic findBySubtopicName(String name);
+	
+	/**
+	 * @param ids - list of ids to search with
+	 * 
+	 * @return list of subtopics with those ids
+	 */
+	List<Subtopic> findBySubtopicIdIn(List<Integer> ids);
 }

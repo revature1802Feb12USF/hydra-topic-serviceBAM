@@ -29,9 +29,9 @@ public class TopicService {
 	 * @param batchId
 	 * @return list of topics for that 1 batch
 	 */
-	public List<Topic> getTopicByBatch(int batchId) {
-		return topicRepo.findByBatchID(batchId);
-	}
+//	public List<Topic> getTopicByBatch(int batchId) {
+//		return topicRepo.findByBatchID(batchId);
+//	}
 	
 	/**
 	 * Returns all topics in the database

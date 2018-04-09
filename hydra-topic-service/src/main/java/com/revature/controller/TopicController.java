@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.Topic;
 import com.revature.services.TopicService;
 
+/**
+ * @author Trevor Fortner
+ * handles ZUUL endpoint /topics
+ * 
+ * ~~All mappings~~
+ */
+
 @RestController
 class TopicController {
 
@@ -20,7 +27,7 @@ class TopicController {
 	 * @param name
 	 *            - String for the name of the topic to be added
 	 */
-	@PostMapping("/topic")
+	@PostMapping("/")
 	public void addTopic(@RequestBody String name) {
 		Topic topic = new Topic();
 		topic.setTopicName(name);

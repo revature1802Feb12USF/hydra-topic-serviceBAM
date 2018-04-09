@@ -48,14 +48,14 @@ public class SubTopicService {
 	 * @param batchId - batch to get all subtopics for
 	 * @return List<Subtopic>
 	 */
-	public List<Subtopic> getSubtopicByBatch(int batchId) {
-		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-		List<Subtopic> subsInBatch = new ArrayList<Subtopic>();
-		for(Topic t : topicsWithBatchId) {
-			subsInBatch.addAll(subtopicRepository.findByParentTopic(t));
-		}
-		return subsInBatch;
-	}
+//	public List<Subtopic> getSubtopicByBatch(int batchId) {
+//		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
+//		List<Subtopic> subsInBatch = new ArrayList<Subtopic>();
+//		for(Topic t : topicsWithBatchId) {
+//			subsInBatch.addAll(subtopicRepository.findByParentTopic(t));
+//		}
+//		return subsInBatch;
+//	}
 
 	/**
 	 * 
@@ -83,17 +83,27 @@ public class SubTopicService {
 	 * 
 	 * @author Michael Garza, Gary LaMountain
 	 */
-	public Long getNumberOfSubtopics(int batchId) {
-		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
-		Long numSubsInBatch = 0L;
-		for(Topic t : topicsWithBatchId) {
-			numSubsInBatch += subtopicRepository.findByParentTopic(t).size();
-		}
-		return numSubsInBatch;
-	}
+//	public Long getNumberOfSubtopics(int batchId) {
+//		List<Topic> topicsWithBatchId = topicRepository.findByBatchID(batchId);
+//		Long numSubsInBatch = 0L;
+//		for(Topic t : topicsWithBatchId) {
+//			numSubsInBatch += subtopicRepository.findByParentTopic(t).size();
+//		}
+//		return numSubsInBatch;
+//	}
 
 	public List<Subtopic> getSubtopics() {
 		return subtopicRepository.findAll();
+	}
+	
+	
+	/**
+	 * @param ids - list of ids to search with
+	 * 
+	 * @return list of subtopics with those ids
+	 */
+	public List<Subtopic> getSubtopicsByIds(List<Integer> ids){		
+		return subtopicRepository.findBySubtopicIdIn(ids); 
 	}
 
 	/**
