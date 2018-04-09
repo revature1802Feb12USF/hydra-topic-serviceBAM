@@ -1,6 +1,7 @@
 package com.revature.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,11 @@ class TopicController {
 		Topic topic = new Topic();
 		topic.setTopicName(name);
 		topicService.addOrUpdateTopic(topic);
+	}
+	
+	@GetMapping("/")
+	public void getAllTopics() {
+		
+		topicService.getTopic();
 	}
 }
