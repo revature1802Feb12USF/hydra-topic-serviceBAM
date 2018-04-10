@@ -41,7 +41,9 @@ public class SubTopicController {
 
 	/**
 	 * @return a JSON containing all the current subtopic names in the database
-	 * @author Trevor Fortner - Batch Matt 1802
+	 * 
+	 * @author Unknown
+	 * 	Last updated by: Unknown
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
 	@ResponseBody
@@ -56,7 +58,8 @@ public class SubTopicController {
 	 *            - int to store in a new SubtopicName object as the topic
 	 * @param subtopicName
 	 *            - String to store in a new SubtopicName object as the name
-	 * @author Trevor Fortner - Batch Matt 1802
+	 * @author Unknown
+	 * 	Last updated by: (Batch Matt 1802)
 	 */
 	@PostMapping("/subtopics")
 	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
@@ -69,13 +72,15 @@ public class SubTopicController {
 	 * 
 	 * @param - ids - list of id numbers for subtopic objects to check for in the DB
 	 * 
-	 * @return boolean indicating if every ID in the list exists in the DB
+	 * @return ResponseEntity indicating if every ID in the list exists in the DB
+	 * 		- all id's present -> HttpStatus.OK, body = null
+	 * 		- one or more of the id's missing -> HttpStatus.CONFLICT, body = null
 	 * 
 	 * @author Trevor Fortner - Batch Matt 1802
 	 */
-	@GetMapping(value = "/subtopics/idList")
+	@GetMapping(value = "/subtopics/verify", params = "ids")
 	@ResponseBody
-	public boolean checkListOfIds(@RequestParam("ids") List<Integer> ids){
+	public ResponseEntity<?> checkListOfIds(@RequestParam("ids") List<Integer> ids){
 		return subTopicService.checkListOfIds(ids);
 	}
 	
