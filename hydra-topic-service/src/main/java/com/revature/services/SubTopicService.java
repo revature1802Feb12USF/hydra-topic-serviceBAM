@@ -105,6 +105,17 @@ public class SubTopicService {
 		}
 		return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(null);
 	}
+	
+	/**
+	 * Deletes the subtopic entry with the given id
+	 * 
+	 * @param id - Integer of the id to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	public void deleteSubtopic(Integer id) {
+		subtopicRepository.deleteById(id);
+	}
 
 	/**
 	 * find the subtopic entry given the name

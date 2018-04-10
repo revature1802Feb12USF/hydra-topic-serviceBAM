@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -95,5 +96,18 @@ public class SubTopicController {
 	@ResponseBody
 	public ResponseEntity<?> getSubtopicsByIds(@RequestParam("ids") List<Integer> ids){
 		return subTopicService.getSubtopicsByIds(ids);
+	}
+	
+	/**
+	 * Delete the subtopic with the given id number
+	 * 
+	 * @param id - Integer - id of the subtopic to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	@DeleteMapping(value="/subtopics", params = "id")
+	@ResponseBody
+	public void deleteSubtopic(@RequestParam("id") Integer id) {
+		subTopicService.deleteSubtopic(id);
 	}
 }
