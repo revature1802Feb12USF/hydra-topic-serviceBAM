@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
 
 import com.revature.beans.Topic;
 import com.revature.services.TopicService;
