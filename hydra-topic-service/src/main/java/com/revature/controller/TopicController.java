@@ -12,7 +12,8 @@ import com.revature.services.TopicService;
 /**
  * handles ZUUL endpoint /topics
  * 
- * ~~All mappings~~
+ * "/" 	- GET - returns the entire list of Topics
+ * 		- POST - takes in a name, inserts a new Topic object into the DB
  */
 @RestController
 class TopicController {
