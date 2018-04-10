@@ -64,4 +64,15 @@ public class TopicService {
 	public Topic getTopicById(int topicId) {
 		return topicRepo.findByTopicID(topicId);
 	}
+	
+	/**
+	 * Deletes the topic entry with the given id
+	 * 
+	 * @param id - Integer of the id to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	public void deleteTopic(Integer id) {
+		topicRepo.deleteById(id);
+	}
 }
