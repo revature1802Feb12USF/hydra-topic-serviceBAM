@@ -106,17 +106,6 @@ public class SubTopicService {
 		}
 		return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(null);
 	}
-	
-	
-	/**
-	 * @param ids - list of ids to search with
-	 * 
-	 * @return list of subtopics with those ids
-	 * @author Trevor Fortner- Batch Matt 1802
-	 */
-	public List<Subtopic> getSubtopicsByIds(List<Integer> ids){		
-		return subtopicRepository.findBySubtopicIdIn(ids); 
-	}
 
 	/**
 	 * find the subtopic entry given the name
