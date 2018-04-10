@@ -35,7 +35,7 @@ public interface SubtopicRepository extends JpaRepository<Subtopic, Integer> {
 	 * @return list of subtopics with those ids
 	 */
 	List<Subtopic> findBySubtopicIdIn(List<Integer> ids);
-	
+  
 	/**
 	 * @param ids - list of ids to search with
 	 * 

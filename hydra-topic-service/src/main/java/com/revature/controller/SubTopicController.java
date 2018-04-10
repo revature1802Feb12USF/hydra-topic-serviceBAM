@@ -26,6 +26,7 @@ import com.revature.services.TopicService;
  * 					- returns the list of subtopics that match the ids in the list
  * "/subtopics/idList?{ids}" - GET
  * 				 	- returns a boolean indicating if all the ids exist in the subtopic table
+
  */
 
 @RestController
