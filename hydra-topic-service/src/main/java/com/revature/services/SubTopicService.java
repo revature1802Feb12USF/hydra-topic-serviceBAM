@@ -85,7 +85,6 @@ public class SubTopicService {
 		return true;
 	}
 	
-	
 	/**
 	 * @param ids - list of ids to search with
 	 * 
