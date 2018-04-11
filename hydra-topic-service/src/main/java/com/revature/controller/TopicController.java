@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +44,7 @@ class TopicController {
 	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	@GetMapping("/")
-	public void getAllTopics() {
-		
-		topicService.getTopic();
+	public List<Topic> getAllTopics() {
+		return topicService.getTopic();
 	}
 }

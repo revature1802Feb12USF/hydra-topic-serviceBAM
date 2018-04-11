@@ -26,15 +26,6 @@ public class TopicService {
 	}
 	
 	/**
-	 * Get all topics for a batch
-	 * @param batchId
-	 * @return list of topics for that 1 batch
-	 */
-//	public List<Topic> getTopicByBatch(int batchId) {
-//		return topicRepo.findByBatchID(batchId);
-//	}
-	
-	/**
 	 * Returns all topics in the database
 	 * @return list of topics in the database
 	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
