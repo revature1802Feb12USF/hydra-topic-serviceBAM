@@ -120,7 +120,7 @@ public class SubTopicService {
 		}
 		return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(null);
 	}
-	
+
 	/**
 	 * Deletes the subtopic entry with the given id
 	 * 

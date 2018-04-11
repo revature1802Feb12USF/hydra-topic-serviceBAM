@@ -31,6 +31,7 @@ import com.revature.services.TopicService;
  */
 
 @RestController
+
 public class SubTopicController {
 
 	@Autowired
@@ -62,7 +63,7 @@ public class SubTopicController {
 	 * 	Last updated by: (Batch Matt 1802)
 	 */
 	@PostMapping("/subtopics")
-	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
+	public void addSubtopic(@RequestBody Integer topicId, @RequestBody String subtopicName) {
 		Topic topic = topicService.getTopicById(topicId);
 		subTopicService.addSubtopic(subtopicName, topic);
 	}
