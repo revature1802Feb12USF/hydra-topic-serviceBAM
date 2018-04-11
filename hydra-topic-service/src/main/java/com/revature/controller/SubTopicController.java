@@ -63,7 +63,7 @@ public class SubTopicController {
 	 * 	Last updated by: (Batch Matt 1802)
 	 */
 	@PostMapping("/subtopics")
-	public void addSubtopic(@RequestBody Integer topicId, @RequestBody String subtopicName) {
+	public void addSubtopic(@RequestParam int topicId, @RequestParam String subtopicName) {
 		Topic topic = topicService.getTopicById(topicId);
 		subTopicService.addSubtopic(subtopicName, topic);
 	}

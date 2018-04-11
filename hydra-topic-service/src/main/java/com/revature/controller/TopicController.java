@@ -66,30 +66,4 @@ class TopicController {
 	public void deleteSubtopic(@RequestParam("id") Integer id) {
 		topicService.deleteTopic(id);
 	}
-	
-	/**
-	 * Delete the topic with the given id number
-	 * 
-	 * @param id - Integer - id of the topic to delete
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
-	 */
-	@DeleteMapping(value="/", params = "id")
-	@ResponseBody
-	public void deleteSubtopic(@RequestParam("id") Integer id) {
-		topicService.deleteTopic(id);
-	}
-	
-	/**
-	 * Delete the topic with the given id number
-	 * 
-	 * @param id - Integer - id of the topic to delete
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
-	 */
-	@DeleteMapping(value="/", params = "id")
-	@ResponseBody
-	public void deleteSubtopic(@RequestParam("id") Integer id) {
-		topicService.deleteTopic(id);
-	}
 }
