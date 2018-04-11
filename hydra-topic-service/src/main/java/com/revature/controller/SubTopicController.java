@@ -44,7 +44,7 @@ public class SubTopicController {
 	 * @return a JSON containing all the current subtopic names in the database
 	 * 
 	 * @author Unknown
-	 * 	Last updated by: Unknown
+	 * 	
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
 	@ResponseBody
