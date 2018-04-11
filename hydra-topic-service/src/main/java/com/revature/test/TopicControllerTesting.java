@@ -31,11 +31,7 @@ public class TopicControllerTesting {
 		when().
 		contentType(ContentType.JSON).
 		post("http://localhost:8080/topic");
-/*
-		when().
-	       post("http://localhost:8080/topic").then().assertThat().
-	       statusCode(200).
-	       extract().response();	*/
+
 	}
 
 	/**
