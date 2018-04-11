@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,9 +50,34 @@ class TopicController {
 	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
 	 */
 	@GetMapping("/")
-	public void getAllTopics() {
-		
-		topicService.getTopic();
+	public List<Topic> getAllTopics() {
+		return topicService.getTopic();
+	}
+	
+	/**
+	 * Delete the topic with the given id number
+	 * 
+	 * @param id - Integer - id of the topic to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	@DeleteMapping(value="/", params = "id")
+	@ResponseBody
+	public void deleteSubtopic(@RequestParam("id") Integer id) {
+		topicService.deleteTopic(id);
+	}
+	
+	/**
+	 * Delete the topic with the given id number
+	 * 
+	 * @param id - Integer - id of the topic to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	@DeleteMapping(value="/", params = "id")
+	@ResponseBody
+	public void deleteSubtopic(@RequestParam("id") Integer id) {
+		topicService.deleteTopic(id);
 	}
 	
 	/**
