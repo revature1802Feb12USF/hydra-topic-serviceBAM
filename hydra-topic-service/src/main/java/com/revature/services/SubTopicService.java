@@ -45,7 +45,7 @@ public class SubTopicService {
 	 *            Persisting subtopic to database. To handle timezone offset, before
 	 *            submission to DB, adding offset to date and updating date.
 	 * 
-	 * @author Samuel Louis-Pierre, Avant Mathur
+	 * @author Samuel Louis-Pierre, Avant Mathur - Batch 1801
 	 */
 	public void updateSubtopic(Subtopic subtopic) {
 	    subtopicRepository.save(subtopic);
@@ -123,7 +123,7 @@ public class SubTopicService {
 	 * 
 	 * @param SubtopicName
 	 *            subtopicName
-	 * @author Brian McKalip
+	 * @author Brian McKalip - Batch 1801
 	 */
 	public void addOrUpdateSubtopic(Subtopic subtopic) {
 		subtopicRepository.save(subtopic);
