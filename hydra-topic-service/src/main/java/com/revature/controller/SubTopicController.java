@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,7 @@ import com.revature.services.TopicService;
  */
 
 @RestController
+
 public class SubTopicController {
 
 	@Autowired
@@ -40,7 +42,9 @@ public class SubTopicController {
 
 	/**
 	 * @return a JSON containing all the current subtopic names in the database
-	 * @author Trevor Fortner - Batch Matt 1802
+	 * 
+	 * @author Unknown
+	 * 	Last updated by: Unknown
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
 	@ResponseBody
@@ -55,10 +59,11 @@ public class SubTopicController {
 	 *            - int to store in a new SubtopicName object as the topic
 	 * @param subtopicName
 	 *            - String to store in a new SubtopicName object as the name
-	 * @author Trevor Fortner - Batch Matt 1802
+	 * @author Unknown
+	 * 	Last updated by: (Batch Matt 1802)
 	 */
 	@PostMapping("/subtopics")
-	public void addSubtopic(@RequestBody int topicId, @RequestBody String subtopicName) {
+	public void addSubtopic(@RequestBody Integer topicId, @RequestBody String subtopicName) {
 		Topic topic = topicService.getTopicById(topicId);
 		subTopicService.addSubtopic(subtopicName, topic);
 	}
@@ -68,13 +73,15 @@ public class SubTopicController {
 	 * 
 	 * @param - ids - list of id numbers for subtopic objects to check for in the DB
 	 * 
-	 * @return boolean indicating if every ID in the list exists in the DB
+	 * @return ResponseEntity indicating if every ID in the list exists in the DB
+	 * 		- all id's present -> HttpStatus.OK, body = null
+	 * 		- one or more of the id's missing -> HttpStatus.CONFLICT, body = null
 	 * 
 	 * @author Trevor Fortner - Batch Matt 1802
 	 */
-	@GetMapping(value = "/subtopics/idList")
+	@GetMapping(value = "/subtopics/verify", params = "ids")
 	@ResponseBody
-	public boolean checkListOfIds(@RequestParam("ids") List<Integer> ids){
+	public ResponseEntity<?> checkListOfIds(@RequestParam("ids") List<Integer> ids){
 		return subTopicService.checkListOfIds(ids);
 	}
 	
@@ -95,5 +102,18 @@ public class SubTopicController {
 	@ResponseBody
 	public ResponseEntity<?> getSubtopicsByIds(@RequestParam("ids") List<Integer> ids){
 		return subTopicService.getSubtopicsByIds(ids);
+	}
+	
+	/**
+	 * Delete the subtopic with the given id number
+	 * 
+	 * @param id - Integer - id of the subtopic to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	@DeleteMapping(value="/subtopics", params = "id")
+	@ResponseBody
+	public void deleteSubtopic(@RequestParam("id") Integer id) {
+		subTopicService.deleteSubtopic(id);
 	}
 }

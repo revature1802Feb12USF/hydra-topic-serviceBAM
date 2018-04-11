@@ -13,8 +13,10 @@ public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	
 	/**
 	 * Find Topic by TopicID
-	 * @param TopicId
-	 * @return Topic
+	 * 
+	 * @param id - Integer to find the topic of
+	 * 
+	 * @return Topic object corresponding to the given ID
 	 */
-	public Topic findByTopicID(int id);	
+	public Topic findByTopicID(Integer id);	
 }
