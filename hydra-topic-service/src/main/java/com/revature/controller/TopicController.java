@@ -3,10 +3,16 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import io.restassured.RestAssured.*;
+import io.restassured.matcher.RestAssuredMatchers.*;
+import org.hamcrest.Matchers.*;
 
 import com.revature.beans.Topic;
 import com.revature.services.TopicService;
@@ -46,5 +52,18 @@ class TopicController {
 	@GetMapping("/")
 	public List<Topic> getAllTopics() {
 		return topicService.getTopic();
+	}
+	
+	/**
+	 * Delete the topic with the given id number
+	 * 
+	 * @param id - Integer - id of the topic to delete
+	 * 
+	 * @author Trevor Fortner - Batch Matt 1802
+	 */
+	@DeleteMapping(value="/", params = "id")
+	@ResponseBody
+	public void deleteSubtopic(@RequestParam("id") Integer id) {
+		topicService.deleteTopic(id);
 	}
 }
