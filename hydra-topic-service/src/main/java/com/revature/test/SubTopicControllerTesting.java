@@ -40,11 +40,7 @@ public class SubTopicControllerTesting {
 		String newString = "{\"topicId\": \"5005\",\r\n" + 
 				"  \"subtopicName\" : \"Mircorosive\"\r\n" + 
 				"}";
-		
-			//String testString = "{'topicId': 5005," + "\n" + " 'subtopicName' : 'Mircorosive'}";
-		//	given().
-		//	 contentType("application/json")
-		//	 .body(newString)
+
 			   when().
 		       post("http://localhost:8080/subtopics?topicId=5005&subtopicName=Microservice").then().assertThat().
 	           statusCode(200).
