@@ -1,4 +1,4 @@
-package test;
+package com.revature.test;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +24,20 @@ public class TopicControllerTesting {
 	public void addTopicTest() {
 		
 		when().
-	       post("http://localhost:8080/api/v2/Topics/").then().assertThat().and().
+	       post("http://localhost:8080/topic").then().assertThat().
 	       statusCode(200).
 	       extract().response();
 	}
-	
+
+	/**
+	 * @author Pooja Suresh
+	 * 
+	 */
 	@Test
 	public void getAllTopicsTest() {
 		
 	    when().
-	       get("http://localhost:8080/api/v2/Topics/").then().assertThat().and().
+	       get("http://localhost:8080/topics").then().assertThat().
 	       statusCode(200).
 	       extract().response();
 	}
