@@ -30,6 +30,7 @@ import com.revature.services.TopicService;
  */
 
 @RestController
+
 public class SubTopicController {
 
 	@Autowired
