@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import org.hamcrest.Matchers.*;
 
 import com.revature.beans.Topic;
 import com.revature.services.TopicService;
@@ -22,6 +19,7 @@ import com.revature.services.TopicService;
  * 
  * "/" 	- GET - returns the entire list of Topics
  * 		- POST - takes in a name, inserts a new Topic object into the DB
+ * 		- DELETE - takes in an id, deletes the Topic with the id number
  */
 @RestController
 class TopicController {
@@ -63,33 +61,7 @@ class TopicController {
 	 */
 	@DeleteMapping(value="/", params = "id")
 	@ResponseBody
-	public void deleteSubtopic(@RequestParam("id") Integer id) {
-		topicService.deleteTopic(id);
-	}
-	
-	/**
-	 * Delete the topic with the given id number
-	 * 
-	 * @param id - Integer - id of the topic to delete
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
-	 */
-	@DeleteMapping(value="/", params = "id")
-	@ResponseBody
-	public void deleteSubtopic(@RequestParam("id") Integer id) {
-		topicService.deleteTopic(id);
-	}
-	
-	/**
-	 * Delete the topic with the given id number
-	 * 
-	 * @param id - Integer - id of the topic to delete
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
-	 */
-	@DeleteMapping(value="/", params = "id")
-	@ResponseBody
-	public void deleteSubtopic(@RequestParam("id") Integer id) {
+	public void deleteTopic(@RequestParam("id") Integer id) {
 		topicService.deleteTopic(id);
 	}
 }
