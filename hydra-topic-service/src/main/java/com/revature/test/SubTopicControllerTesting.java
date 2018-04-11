@@ -16,14 +16,8 @@ import springfox.documentation.spring.web.json.Json;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-/**
- * @author Nguyen
- *
- */
-/**
- * @author Nguyen
- *
- */
+
+ 
 public class SubTopicControllerTesting {
 	@Autowired
 	Subtopic subtopic;
@@ -48,15 +42,13 @@ public class SubTopicControllerTesting {
 				"}";
 		
 			//String testString = "{'topicId': 5005," + "\n" + " 'subtopicName' : 'Mircorosive'}";
-			given().
-			 contentType("application/json")
-			 .body(newString)
-			   .when().
-		       post("http://localhost:8080/subtopics").then().assertThat().
+		//	given().
+		//	 contentType("application/json")
+		//	 .body(newString)
+			   when().
+		       post("http://localhost:8080/subtopics?topicId=5005&subtopicName=Microservice").then().assertThat().
 	           statusCode(200).
 	           extract().response();   
-		
-		
 	}
 	/**
 	 * Test get topic endpoint /subtopic/idList?ids= GET Method
@@ -66,7 +58,7 @@ public class SubTopicControllerTesting {
 	@Test
 	public void testGetcheckListOfIds() {
 		   when().
-	       get("http://localhost:8080/subtopics/idList?ids=1001,1002").then().assertThat().statusCode(200);
+	       get("http://localhost:8080/subtopics/verify?ids=1001,1002").then().assertThat().statusCode(200);
 	}
 	/**
 	 * Test get topic endpoint /subtopic?ids= GET Method
