@@ -21,6 +21,13 @@ public class HydraTopicServiceApplication {
 		SpringApplication.run(HydraTopicServiceApplication.class, args);
 	}
 
+	/**
+	 * Used to set up Swagger documentation
+	 * 
+	 * @author Jennifer Fox - Batch Matt 1802
+	 * 
+	 * @return Docket object for Swagger to use
+	 */
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
