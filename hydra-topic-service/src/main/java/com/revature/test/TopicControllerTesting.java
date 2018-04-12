@@ -19,6 +19,7 @@ public class TopicControllerTesting {
 	Topic topic;
 	
 	/**
+	 * This method tests adding a topic to the db.
 	 * @author Pooja Suresh
 	 * 
 	 */
