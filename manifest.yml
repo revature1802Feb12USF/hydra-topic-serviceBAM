@@ -1,5 +1,5 @@
 applications:
-- name: hydra-topic-service
+- name: hydra-topic-service-dev
   memory: 700M
   instances: 1
   random-route: false
