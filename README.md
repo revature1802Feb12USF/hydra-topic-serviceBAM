@@ -29,7 +29,9 @@ Run it as a Spring Boot App
 
 ## Running the tests
 
-There are none :)
+RestAssured testing for each Controller; Topic and Subtopic
+	- Implemented JUnit to run unit tests for separate method functionalities
+	- Specific status codes returned on success
 
 ## Built With
 
