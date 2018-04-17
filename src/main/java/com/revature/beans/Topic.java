@@ -12,24 +12,28 @@ import org.springframework.stereotype.Component;
 
 /**
  * Bean Class for SubTopic Status
- * 
+ * <br>
+ * <br>
+ * Fields
  * <ul>
  * <li> topicID - int - auto-generated ID number (PK)
  * <li> topicName - String - name of the topic
  * </ul> 
+ * 
+ * @author Trevor Fortner (Batch Matt 1802)
  */
 @Component
 @Entity
-@Table(name = "Topic")
+@Table(name = "TOPIC")
 public class Topic {
 
 	@Id
-	@Column(name = "Topic_ID")
+	@Column(name = "ID")
 	@SequenceGenerator(name = "TOPIC_NAME_ID_SEQ", sequenceName = "TOPIC_NAME_ID_SEQ", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TOPIC_NAME_ID_SEQ")
 	private int topicID;
 
-	@Column(name = "Topic_Name")
+	@Column(name = "NAME")
 	private String topicName;
 	
 	
