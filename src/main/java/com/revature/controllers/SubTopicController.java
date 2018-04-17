@@ -28,7 +28,7 @@ import com.revature.services.TopicService;
  * "/subtopics/idList?{ids}" - GET
  * 				 	- returns a boolean indicating if all the ids exist in the subtopic table
  * 
- * @author Trevor Fortner
+ * @author Trevor Fortner (Batch Matt 1802)
  */
 
 @RestController
@@ -43,7 +43,6 @@ public class SubTopicController {
 
 	/**
 	 * @author Unknown	
-	 * @param void 
 	 * @return a JSON containing all the current subtopic names in the database
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
@@ -106,7 +105,6 @@ public class SubTopicController {
 	 * 
 	 * @author Trevor Fortner (Batch Matt 1802)
 	 * @param id - Integer - id of the subtopic to delete
-	 * @return void
 	 */
 	@DeleteMapping(value="/subtopics", params = "id")
 	@ResponseBody

@@ -30,7 +30,7 @@ public class TopicControllerTesting {
 				+ "\"name\"  ").
 		when().
 		contentType(ContentType.JSON).
-		post("http://localhost:8080/topic");
+		post("http://localhost:9001/api/v2/topic");
 
 	}
 
@@ -42,7 +42,7 @@ public class TopicControllerTesting {
 	public void getAllTopicsTest() {
 		
 	    when().
-	       get("http://localhost:8080/").then().assertThat().
+	       get("http://localhost:9001/api/v2/").then().assertThat().
 	       statusCode(200).
 	       extract().response();
 	}

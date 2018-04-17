@@ -30,7 +30,7 @@ public class SubtopicControllerTesting {
 	@Test
 	public void testGetSubtopicsEndpoint() {
 	   when().
-	       get("http://localhost:8080/subtopics").then().assertThat().
+	       get("http://localhost:9001/api/v2/subtopics").then().assertThat().
            statusCode(200).
            extract().response();    
 	}
@@ -42,8 +42,8 @@ public class SubtopicControllerTesting {
 				"}";
 
 			   when().
-		       post("http://localhost:8080/subtopics?topicId=5005&subtopicName=Microservice").then().assertThat().
-	           statusCode(200).
+		       post("http://localhost:9001/api/v2/subtopics?topicId=5005&subtopicName=Microservice").then().assertThat().
+	           statusCode(201).
 	           extract().response();   
 	}
 	/**
@@ -54,7 +54,7 @@ public class SubtopicControllerTesting {
 	@Test
 	public void testGetcheckListOfIds() {
 		   when().
-	       get("http://localhost:8080/subtopics/verify?ids=1001,1002").then().assertThat().statusCode(200);
+	       get("http://localhost:9001/api/v2/subtopics/verify?ids=1001,1002").then().assertThat().statusCode(200);
 	}
 	/**
 	 * Test get topic endpoint /subtopic?ids= GET Method
@@ -64,7 +64,6 @@ public class SubtopicControllerTesting {
 	@Test
 	public void testGetSubtopicsByIds() {
 		 when().
-	       get("http://localhost:8080/subtopics?ids=1001,1002").then().assertThat().statusCode(200);
-
+	       get("http://localhost:9001/api/v2/subtopics?ids=1001,1002").then().assertThat().statusCode(200);
 	}
 }
