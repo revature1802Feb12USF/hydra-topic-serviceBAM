@@ -35,8 +35,8 @@ spring:
 eureka:
   instance:
     hostname: ${vcap.application.uris[0]}
-    statusPageUrl: https://${eureka.instance.hostname}/info
-    healthCheckUrl: https://${eureka.instance.hostname}/health
+    statusPageUrl: https://${eureka.instance.hostname}/actuator/info
+    healthCheckUrl: https://${eureka.instance.hostname}/actuator/health
     homePageUrl: https://${eureka.instance.hostname}/
     nonSecurePort: 80
   client:
