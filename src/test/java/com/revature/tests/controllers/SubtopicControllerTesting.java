@@ -43,7 +43,7 @@ public class SubtopicControllerTesting {
 
 			   when().
 		       post("http://localhost:8080/subtopics?topicId=5005&subtopicName=Microservice").then().assertThat().
-	           statusCode(200).
+	           statusCode(201).
 	           extract().response();   
 	}
 	/**
@@ -65,6 +65,5 @@ public class SubtopicControllerTesting {
 	public void testGetSubtopicsByIds() {
 		 when().
 	       get("http://localhost:8080/subtopics?ids=1001,1002").then().assertThat().statusCode(200);
-
 	}
 }
