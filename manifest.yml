@@ -1,9 +1,10 @@
 applications:
-- name: hydra-topic-service-dev
-  memory: 700M
+- name: hydra-topic-service-dev-1
+  memory: 1G
   instances: 1
   random-route: false
-  buildpack: https://github.com/cloudfoundry/java-buildpack.git
   path: target/hydra-topic-service-0.0.1-SNAPSHOT.jar
+  health-check-type: http
+  health-check-http-endpoint: /
   env:
     SPRING_PROFILES_ACTIVE: prod
