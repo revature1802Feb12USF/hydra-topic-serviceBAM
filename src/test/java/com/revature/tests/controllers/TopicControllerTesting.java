@@ -1,4 +1,4 @@
-package com.revature;
+package com.revature.tests.controllers;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.when;
