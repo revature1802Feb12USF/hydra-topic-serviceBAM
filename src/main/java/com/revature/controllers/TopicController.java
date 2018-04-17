@@ -34,7 +34,6 @@ class TopicController {
 	 * @author Nicole Nguyen (Batch Matt 1802)
 	 * @param name
 	 *            - String for the name of the topic to be added           
-	 * @return void
 	 */
 	@PostMapping("/")
 	public void addTopic(@RequestBody String name) {
@@ -59,7 +58,6 @@ class TopicController {
 	 * 
 	 * @author Trevor Fortner (Batch Matt 1802)
 	 * @param id - Integer - id of the topic to delete
-	 * @return void
 	 */
 	@DeleteMapping(value="/", params = "id")
 	@ResponseBody
