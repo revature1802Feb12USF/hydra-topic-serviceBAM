@@ -28,12 +28,12 @@ import org.springframework.stereotype.Component;
 public class Topic {
 
 	@Id
-	@Column(name = "Topic_Id")
+	@Column(name = "ID")
 	@SequenceGenerator(name = "TOPIC_NAME_ID_SEQ", sequenceName = "TOPIC_NAME_ID_SEQ", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TOPIC_NAME_ID_SEQ")
 	private int topicID;
 
-	@Column(name = "Topic_Name")
+	@Column(name = "NAME")
 	private String topicName;
 	
 	

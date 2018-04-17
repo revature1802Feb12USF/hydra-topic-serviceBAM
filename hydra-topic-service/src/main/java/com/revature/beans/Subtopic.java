@@ -40,14 +40,14 @@ public class Subtopic {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUBTOPIC_SEQ")
 	private int subtopicId;
 
-	@Column(name = "Name")
+	@Column(name = "NAME")
 	private String subtopicName;
 
-	@Column(name = "Status")
+	@Column(name = "STATUS")
 	private String status;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "Topic_ID")
+	@JoinColumn(name = "PARENT_TOPIC", referencedColumnName = "ID")
 	@Autowired
 	private Topic parentTopic;
 	
