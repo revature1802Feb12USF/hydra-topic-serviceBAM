@@ -1,4 +1,4 @@
-package com.revature.repository;
+package com.revature.repositories;
 
 import java.util.List;
 
@@ -15,8 +15,9 @@ public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	 * Find Topic by TopicID
 	 * 
 	 * @param id - Integer to find the topic of
-	 * 
 	 * @return Topic object corresponding to the given ID
+	 * @author Unknown
+	 * 
 	 */
 	public Topic findByTopicID(Integer id);	
 }

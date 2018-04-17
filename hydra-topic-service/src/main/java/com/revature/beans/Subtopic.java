@@ -16,13 +16,18 @@ import org.springframework.stereotype.Component;
 
 /**
  * Bean Class for SubTopic
- * 
+ * <br>
+ * <br>
+ * Fields
  * <ul>
  * <li> subtopicId - int - auto-generated ID number (PK)
  * <li> subtopicName - String - name of the subtopic
  * <li> status - String - current status of the topic ("Complete", "Not covered", etc)
  * <li> parentTopic - Topic - the topic object that contains this subtopic
  * </ul>
+ * 
+ * @author Pooja Suresh (Batch Matt 1802)
+ * @author Nicole Nyugen (Batch Matt 1802)
  */
 @Entity
 @Table(name = "SUBTOPIC")
@@ -30,7 +35,7 @@ import org.springframework.stereotype.Component;
 public class Subtopic {
 
 	@Id
-	@Column(name = "Id")
+	@Column(name = "Subtopic_Id")
 	@SequenceGenerator(name = "SUBTOPIC_SEQ", sequenceName = "SUBTOPIC_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUBTOPIC_SEQ")
 	private int subtopicId;

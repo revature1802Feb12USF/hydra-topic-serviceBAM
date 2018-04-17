@@ -1,4 +1,4 @@
-package com.revature.controller;
+package com.revature.controllers;
 
 import java.util.List;
 
@@ -32,8 +32,8 @@ class TopicController {
 	 * 
 	 * @param name
 	 *            - String for the name of the topic to be added
-	 *            
-	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
+	 * @author Pooja Suresh (Batch Matt 1802)
+	 * @author Nicole Nguyen (Batch Matt 1802)
 	 */
 	@PostMapping("/")
 	public void addTopic(@RequestBody String name) {
@@ -45,7 +45,8 @@ class TopicController {
 	/**
 	 * returns all topics in database
 	 * 
-	 * @author Pooja Suresh, Nicole Nguyen - Batch Matt 1802
+	 * @author Pooja Suresh (Batch Matt 1802)
+	 * @author Nicole Nguyen (Batch Matt 1802)
 	 */
 	@GetMapping("/")
 	public List<Topic> getAllTopics() {
@@ -56,8 +57,8 @@ class TopicController {
 	 * Delete the topic with the given id number
 	 * 
 	 * @param id - Integer - id of the topic to delete
+	 * @author Trevor Fortner (Batch Matt 1802)
 	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	@DeleteMapping(value="/", params = "id")
 	@ResponseBody

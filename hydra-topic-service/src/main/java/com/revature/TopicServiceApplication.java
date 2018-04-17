@@ -16,17 +16,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableCircuitBreaker
 @EnableEurekaClient
 @SpringBootApplication
-public class HydraTopicServiceApplication {
+public class TopicServiceApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(HydraTopicServiceApplication.class, args);
+		SpringApplication.run(TopicServiceApplication.class, args);
 	}
 
 	/**
 	 * Used to set up Swagger documentation
 	 * 
-	 * @author Jennifer Fox - Batch Matt 1802
-	 * 
 	 * @return Docket object for Swagger to use
+	 * @author Jennifer Fox (Batch Matt 1802)
+	 * 
 	 */
 	@Bean
 	public Docket api() {

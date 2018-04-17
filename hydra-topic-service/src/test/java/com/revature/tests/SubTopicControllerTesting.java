@@ -1,4 +1,4 @@
-package com.revature.test;
+package com.revature.tests;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
