@@ -7,7 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.revature.beans.Topic;
 import com.revature.repository.TopicRepository;
-
+/**
+ * 
+ * A service class for retrieving and modifying topics data.
+ * @author Trevor Fortner (Batch Matt 1802)
+ * @author Pooja Suresh (Batch Matt 1802)
+ * @author Nicole Nguyen (Batch Matt 1802)
+ *
+ */
 @Service
 public class TopicService {
 	@Autowired 

@@ -11,6 +11,14 @@ import com.revature.beans.Topic;
 import com.revature.repository.SubtopicRepository;
 import com.revature.repository.TopicRepository;
 
+/**
+ * 
+ * A service class for retrieving and modifying subtopics data.
+ * @author Trevor Fortner (Batch Matt 1802)
+ * @author Pooja Suresh (Batch Matt 1802)
+ * @author Nicole Nguyen (Batch Matt 1802)
+ *
+ */
 @Service
 public class SubTopicService {
 
