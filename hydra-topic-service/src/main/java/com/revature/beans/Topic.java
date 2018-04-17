@@ -33,7 +33,7 @@ public class Topic {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TOPIC_NAME_ID_SEQ")
 	private int topicID;
 
-	@Column(name = "Name")
+	@Column(name = "Topic_Name")
 	private String topicName;
 	
 	

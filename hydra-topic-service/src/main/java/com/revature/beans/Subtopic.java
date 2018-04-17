@@ -35,7 +35,7 @@ import org.springframework.stereotype.Component;
 public class Subtopic {
 
 	@Id
-	@Column(name = "Subtopic_Id")
+	@Column(name = "ID")
 	@SequenceGenerator(name = "SUBTOPIC_SEQ", sequenceName = "SUBTOPIC_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUBTOPIC_SEQ")
 	private int subtopicId;
