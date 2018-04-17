@@ -1,4 +1,4 @@
-package com.revature.controller;
+package com.revature.controllers;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import com.revature.services.SubTopicService;
 import com.revature.services.TopicService;
 
 /**
- * @author Trevor Fortner
+ * 
  * handles ZUUL endpoint /topics
  * 
  * "/subtopics" - GET - returns the list of all subtopics
@@ -27,7 +27,8 @@ import com.revature.services.TopicService;
  * 					- returns the list of subtopics that match the ids in the list
  * "/subtopics/idList?{ids}" - GET
  * 				 	- returns a boolean indicating if all the ids exist in the subtopic table
-
+ * 
+ * @author Trevor Fortner
  */
 
 @RestController
@@ -41,10 +42,9 @@ public class SubTopicController {
 	TopicService topicService;
 
 	/**
+	 * @author Unknown	
+	 * @param void 
 	 * @return a JSON containing all the current subtopic names in the database
-	 * 
-	 * @author Unknown
-	 * 	
 	 */
 	@GetMapping(value = "/subtopics", produces = "application/json")
 	@ResponseBody
@@ -55,12 +55,12 @@ public class SubTopicController {
 	/**
 	 * Adds a new SubtopicName object to the SubtopicName table in the database
 	 * 
+	 * @author Unknown
+	 * @author Trevor (Batch Matt 1802)
 	 * @param topicId
 	 *            - int to store in a new SubtopicName object as the topic
 	 * @param subtopicName
 	 *            - String to store in a new SubtopicName object as the name
-	 * @author Unknown
-	 * 	Last updated by: (Batch Matt 1802)
 	 */
 	@PostMapping("/subtopics")
 	public void addSubtopic(@RequestParam int topicId, @RequestParam String subtopicName) {
@@ -71,13 +71,11 @@ public class SubTopicController {
 	/** 
 	 * Returns all the subtopics in a comma-separated list of subtopic ID's
 	 * 
+	 * @author Trevor Fortner (Batch Matt 1802)
 	 * @param - ids - list of id numbers for subtopic objects to check for in the DB
-	 * 
 	 * @return ResponseEntity indicating if every ID in the list exists in the DB
 	 * 		- all id's present -> HttpStatus.OK, body = null
 	 * 		- one or more of the id's missing -> HttpStatus.CONFLICT, body = null
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
 	 */
 	@GetMapping(value = "/subtopics/verify", params = "ids")
 	@ResponseBody
@@ -88,15 +86,14 @@ public class SubTopicController {
 	/** 
 	 * Returns all the subtopics in a comma-separated list of subtopic ID's
 	 * 
+	 * @author Trevor Fortner (Batch Matt 1802)
+	 * @author Nicole Nguyen (Batch Matt 1802)
 	 * @param - ids - list of id numbers for subtopic objects to return from the DB
-	 * 
 	 * @return a ResponseEntity whose HttpStatus and body vary given different conditions:
 	 * 	  - all id's present -> HttpStatus.OK, body = JSON list of Subtopic objects that correspond
 	 *    - some id's present -> HttpStatus.PARTIAL_CONTENT, body = JSON list of the ones found
 	 *    - no id's present -> HttpStatus.NO_CONTENT, body = null
 	 *    - something weird happens -> HttpStatus.I_AM_A_TEAPOT, body = null
-	 * 
-	 * @author Trevor Fortner, Nicole Nguyen - Batch Matt 1802
 	 */
 	@GetMapping(value = "/subtopics", params = "ids", produces = "application/json")
 	@ResponseBody
@@ -107,9 +104,9 @@ public class SubTopicController {
 	/**
 	 * Delete the subtopic with the given id number
 	 * 
+	 * @author Trevor Fortner (Batch Matt 1802)
 	 * @param id - Integer - id of the subtopic to delete
-	 * 
-	 * @author Trevor Fortner - Batch Matt 1802
+	 * @return void
 	 */
 	@DeleteMapping(value="/subtopics", params = "id")
 	@ResponseBody

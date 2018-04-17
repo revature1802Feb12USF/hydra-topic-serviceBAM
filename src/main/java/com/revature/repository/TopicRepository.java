@@ -14,8 +14,8 @@ public interface TopicRepository extends JpaRepository<Topic, Integer> {
 	/**
 	 * Find Topic by TopicID
 	 * 
+	 * @author Unknown
 	 * @param id - Integer to find the topic of
-	 * 
 	 * @return Topic object corresponding to the given ID
 	 */
 	public Topic findByTopicID(Integer id);	

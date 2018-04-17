@@ -1,4 +1,4 @@
-package com.revature.test;
+package com.revature;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.*;
 
 
  
-public class SubTopicControllerTesting {
+public class SubtopicControllerTesting {
 	@Autowired
 	Subtopic subtopic;
 	
